@@ -20,7 +20,7 @@ module.exports = {
       urlImage: {
         allowNull: false,
         type: Sequelize.STRING,
-        field: 'ur_image',
+        field: 'url_image',
       },
     });
   },
@@ -29,3 +29,4 @@ module.exports = {
     await queryInterface.dropTable('products');
   }
 };
+ 
