@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { post } from '../utils/api';
 import { setLocalStorage } from '../utils/storage';
 
@@ -10,7 +10,7 @@ function Login() {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
   const isDisabled = password.length < MINIMUM_PASSWORD_LENGTH
@@ -25,12 +25,12 @@ function Login() {
 
     setLocalStorage('token', response.token);
 
-    const { role } = response;
+    const { role } = response.role;
 
-    if (role === 'administrator') navigate('/admin/manage');
-    if (role === 'seller') navigate('/seller/orders');
+    if (role === 'administrator') history.push('admin/manage');
+    if (role === 'seller') history.push('seller/orders');
 
-    navigate('/customer/products');
+    history.push('customer/products');
   };
 
   return (
