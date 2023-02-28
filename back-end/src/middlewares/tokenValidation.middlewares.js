@@ -10,7 +10,6 @@ const validateTokenMiddle = async (req, res, next) => {
     next();
 };
 
-
 module.exports = {
     validateTokenMiddle,
 };
