@@ -65,7 +65,11 @@ function Login() {
           Login
         </button>
 
-        <button type="button" data-testid="common_login__button-register">
+        <button
+          type="button"
+          data-testid="common_login__button-register"
+          onClick={ () => history.push('register') }
+        >
           Ainda não tem conta
         </button>
       </form>
