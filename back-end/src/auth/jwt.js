@@ -6,7 +6,9 @@ const jwtConfig = {
   algorithm: 'HS256',
   expiresIn: '1d',
 };
-//testando email
+
+// testando email
+
 const createToken = async (email, role) => {
   const token = jwt.sign({ email, role }, secret, jwtConfig);
   return token;
