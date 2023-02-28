@@ -9,8 +9,8 @@ const jwtConfig = {
 
 // testando email
 
-const createToken = async (email, role) => {
-  const token = jwt.sign({ email, role }, secret, jwtConfig);
+const createToken = async (email) => {
+  const token = jwt.sign({ email }, secret, jwtConfig);
   return token;
 };
 
