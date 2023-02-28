@@ -7,9 +7,9 @@ const login = async (email, password) => {
 
   const encreptePassword = md5(password);
 
-  if (!user || user.password !== encreptePassword){
+  if (!user || user.password !== encreptePassword) {
      return { error: true, message: 'Incorrect username or password' };
-  };
+  }
 
   const token = await jwt.createToken(email);
   return { error: false, message: token };
