@@ -1,15 +1,14 @@
-const { validateToken } = require('../auth/jwt');
+const { validateToken } = require('../auth/tokenUtil');
 
 const validateTokenMiddle = async (req, res, next) => {
   const { authorization } = req.headers;
   const validateTokenResult = await validateToken(authorization);
-  console.log(validateTokenResult);
+
     if (validateTokenResult.error) {
         return res.status(401).json({ message: validateTokenResult.error });
     }
     next();
 };
-
 
 module.exports = {
     validateTokenMiddle,

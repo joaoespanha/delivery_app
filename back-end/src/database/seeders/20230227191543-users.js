@@ -6,7 +6,7 @@ module.exports = {
       [{
         id: 1,
         name: 'Lewis Delivery App Admin',
-        email: 'lewishamilton',
+        email: 'lewishamilton@gmail.com',
         password: 'a4c86edecc5aee06eff8fdeda69e0d04',
         role: 'administrator',
       },
