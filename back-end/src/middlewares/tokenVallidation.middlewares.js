@@ -1,4 +1,4 @@
-const { validateToken } = require('./auth/jwt');
+const { validateToken } = require('../auth/jwt');
 
 const validateTokenMiddle = async (req, res, next) => {
   const { authorization } = req.headers;
@@ -8,7 +8,6 @@ const validateTokenMiddle = async (req, res, next) => {
     }
     next();
 };
-
 
 module.exports = {
     validateTokenMiddle,
