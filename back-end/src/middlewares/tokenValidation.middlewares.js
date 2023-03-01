@@ -1,4 +1,3 @@
-
 const { validateToken } = require('../auth/tokenUtil');
 
 const validateTokenMiddle = async (req, res, next) => {
