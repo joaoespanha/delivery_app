@@ -23,9 +23,9 @@ function Login() {
       return setErrorMessage(response.message);
     }
 
-    setLocalStorage('token', response.token);
+    const { token, name, email: userEmail, role } = response;
 
-    const { role } = response.role;
+    setLocalStorage('user', { token, name, email: userEmail, role });
 
     if (role === 'administrator') history.push('admin/manage');
     if (role === 'seller') history.push('seller/orders');

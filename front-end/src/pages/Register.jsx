@@ -25,7 +25,9 @@ function Register() {
       return setErrorMessage(response.message);
     }
 
-    setLocalStorage('token', response.token);
+    const { token, name: userName, email: userEmail, role } = response;
+
+    setLocalStorage('user', { token, name: userName, email: userEmail, role });
 
     history.push('customer/products');
   };
