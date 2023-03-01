@@ -1,4 +1,4 @@
-const { validateToken } = require('../auth/jwt');
+const { validateToken } = require('../auth/tokenUtil');
 
 const validateTokenMiddle = async (req, res, next) => {
   const { authorization } = req.headers;
