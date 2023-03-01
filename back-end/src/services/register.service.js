@@ -1,17 +1,14 @@
-const crypto = require('crypto');
+const md5 = require('md5');
 const { Op: { or } } = require('sequelize');
 const { createToken } = require('../auth/tokenUtil');
 const { User } = require('../database/models');
 
-const secret = 'zooFunction';
-const algorithm = 'md5'; 
 
 const register = async (user) => {
   let userCreated;
   if (!user.role) {
-    const uncryptedPassword = user.password;
-    const hasher = crypto.createHmac(algorithm, secret);
-    const userCrypted = { ...user, password: hasher.update(uncryptedPassword).digest('hex') };
+    const encryptedPassword = md5(user.password);
+    const userCrypted = { ...user, password: encryptedPassword };
     userCreated = await User.create({ ...userCrypted, role: 'customer' });
   }
   const { email, role, name } = userCreated.dataValues;

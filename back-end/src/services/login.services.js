@@ -5,9 +5,9 @@ const tokenUtil = require('../auth/tokenUtil');
 const login = async (email, password) => {
   const user = await User.findOne({ where: { email } });
 
-  const encreptePassword = md5(password);
+  const encryptedPassword = md5(password);
 
-  if (!user || user.password !== encreptePassword) {
+  if (!user || user.password !== encryptedPassword) {
      return { error: true, message: 'Incorrect username or password' };
   }
 
