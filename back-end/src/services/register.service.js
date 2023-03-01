@@ -1,6 +1,6 @@
 const crypto = require('crypto');
 const { Op: { or } } = require('sequelize');
-const { createToken } = require('../auth/jwt');
+const { createToken } = require('../auth/tokenUtil');
 const { User } = require('../database/models');
 
 const secret = 'zooFunction';
