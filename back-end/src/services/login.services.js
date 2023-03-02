@@ -11,6 +11,8 @@ const login = async (email, password) => {
      return { error: true, message: 'Incorrect username or password' };
   }
 
+  const { name, role } = user; 
+
   const token = await tokenUtil.createToken(email);
   return { error: false, message: token };
 };
