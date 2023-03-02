@@ -7,6 +7,6 @@ function CustomerProducts() {
       <CustomerNavBar />
     </main>
   );
-};
+}
 
 export default CustomerProducts;
