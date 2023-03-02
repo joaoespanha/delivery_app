@@ -17,15 +17,22 @@ function Login() {
   || !emailRegex.test(email);
 
   const login = async () => {
-    const response = await post('login', { email, password });
+    let userLogin;
 
-    if (response.message) {
-      return setErrorMessage(response.message);
+    try {
+      const response = await post('login', { email, password });
+      userLogin = response;
+    } catch (error) {
+      userLogin = error;
     }
 
-    setLocalStorage('token', response.token);
+    if (userLogin.response) {
+      return setErrorMessage(userLogin.response.statusText);
+    }
 
-    const { role } = response.role;
+    const { token, name, email: userEmail, role } = userLogin.data;
+
+    setLocalStorage('user', { token, name, email: userEmail, role });
 
     if (role === 'administrator') history.push('admin/manage');
     if (role === 'seller') history.push('seller/orders');

@@ -19,13 +19,22 @@ function Register() {
   || !emailRegex.test(email) || name.length < MINIMUM_NAME_LENGTH;
 
   const register = async () => {
-    const response = await post('register', { email, password, name });
+    let userRegister;
 
-    if (response.message) {
-      return setErrorMessage(response.message);
+    try {
+      const response = await post('register', { email, password, name });
+      userRegister = response;
+    } catch (error) {
+      userRegister = error;
     }
 
-    setLocalStorage('token', response.token);
+    if (userRegister.response) {
+      return setErrorMessage(userRegister.response.statusText);
+    }
+
+    const { token, name: userName, email: userEmail, role } = userRegister.data;
+
+    setLocalStorage('user', { token, name: userName, email: userEmail, role });
 
     history.push('customer/products');
   };
