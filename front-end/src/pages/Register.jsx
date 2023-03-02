@@ -32,9 +32,9 @@ function Register() {
       return setErrorMessage(userRegister.response.statusText);
     }
 
-    const { token, name: userName, email: userEmail, role } = userRegister.data;
+    const { token, name: userName, email: userEmail, role, id } = userRegister.data;
 
-    setLocalStorage('user', { token, name: userName, email: userEmail, role });
+    setLocalStorage('user', { token, name: userName, email: userEmail, role, id });
 
     history.push('customer/products');
   };
