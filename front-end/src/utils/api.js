@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const api = axios.create({ URL: 'http://localhost:3001' });
+const URL = 'URL';
 
-const post = async (route, data) => api.post(`/${route}`, data);
-const get = async (route) => api.get(`/${route}`);
+const post = async (route, data) => axios.post(`${URL}${route}`, data);
+const get = async (route) => axios.get(`${URL}${route}`);
 
 export { post, get };
