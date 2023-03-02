@@ -11,10 +11,10 @@ const login = async (email, password) => {
      return { error: true, message: 'Incorrect username or password' };
   }
 
-  const { name, role } = user; 
+  const { name, role, id } = user; 
 
   const token = await tokenUtil.createToken(email);
-  return { error: false, message: { token, name, role } };
+  return { error: false, message: { token, name, role, id } };
 };
 
 module.exports = {

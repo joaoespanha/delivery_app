@@ -30,9 +30,9 @@ function Login() {
       return setErrorMessage(userLogin.response.statusText);
     }
 
-    const { token, name, email: userEmail, role } = userLogin.data;
+    const { token, name, email: userEmail, role, id } = userLogin.data;
 
-    setLocalStorage('user', { token, name, email: userEmail, role });
+    setLocalStorage('user', { token, name, email: userEmail, role, id });
 
     if (role === 'administrator') history.push('admin/manage');
     if (role === 'seller') history.push('seller/orders');

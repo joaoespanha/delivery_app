@@ -10,9 +10,9 @@ const register = async (user) => {
     const userCrypted = { ...user, password: encryptedPassword };
     userCreated = await User.create({ ...userCrypted, role: 'customer' });
   }
-  const { email, role, name } = userCreated.dataValues;
+  const { email, role, name, id } = userCreated.dataValues;
   const token = await createToken(email, role);
-  return { token, email, role, name };
+  return { token, email, role, name, id };
 };
 
 const findUser = async (user) => {
