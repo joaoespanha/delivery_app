@@ -6,7 +6,6 @@ const productsRouter = require('./products.routes');
 const salesRouter = require('./sales.routes');
 
 const router = express.Router();
-
 router.use('/login', loginRouter);
 router.use('/register', registerRouter);
 router.use('/products', productsRouter);
