@@ -18,7 +18,7 @@ function CustomerNavBar() {
   const logOut = () => {
     clearLocalStorage();
 
-    history.push('login');
+    history.push('/');
   };
 
   return (
