@@ -14,7 +14,7 @@ const login = async (email, password) => {
   const { name, role } = user; 
 
   const token = await tokenUtil.createToken(email);
-  return { error: false, message: token };
+  return { error: false, message: { token, name, role } };
 };
 
 module.exports = {
