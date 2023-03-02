@@ -3,7 +3,6 @@ const { Op: { or } } = require('sequelize');
 const { createToken } = require('../auth/tokenUtil');
 const { User } = require('../database/models');
 
-
 const register = async (user) => {
   let userCreated;
   if (!user.role) {
