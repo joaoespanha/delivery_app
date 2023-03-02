@@ -17,13 +17,20 @@ function Login() {
   || !emailRegex.test(email);
 
   const login = async () => {
-    const response = await post('login', { email, password });
+    let userLogin;
 
-    if (response.message) {
-      return setErrorMessage(response.message);
+    try {
+      const response = await post('login', { email, password });
+      userLogin = response;
+    } catch (error) {
+      userLogin = error;
     }
 
-    const { token, name, email: userEmail, role } = response;
+    if (userLogin.response) {
+      return setErrorMessage(userLogin.response.statusText);
+    }
+
+    const { token, name, email: userEmail, role } = userLogin.data;
 
     setLocalStorage('user', { token, name, email: userEmail, role });
 
