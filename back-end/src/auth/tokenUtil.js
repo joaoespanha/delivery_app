@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken');
 const secret = `secret_key
 `;
 
-
 const jwtConfig = {
   algorithm: 'HS256',
   expiresIn: '1d',
@@ -31,4 +30,3 @@ module.exports = {
   createToken,
   validateToken,
 };
-
