@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     totalPrice: DataTypes.DOUBLE,
     deliveryAddress: DataTypes.STRING,
     deliveryNumber: DataTypes.STRING,
-    saleDate: DataTypes.DATETIME,
+    saleDate: DataTypes.DATE,
     status: DataTypes.STRING,
   },
     {
