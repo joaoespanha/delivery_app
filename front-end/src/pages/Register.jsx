@@ -84,7 +84,7 @@ function Register() {
 
       {
         errorMessage && (
-          <span data-testid="common_login__element-invalid_register">
+          <span data-testid="common_register__element-invalid_register">
             Usuário já cadastrado
           </span>
         )
