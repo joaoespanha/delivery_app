@@ -11,26 +11,22 @@ function ProductCard({ item }) {
 
   const checkItem = () => shop.some(({ id: itemId }) => id === itemId);
 
-  const settingNewArray = () => {
-    const newArray = shop.map((product) => {
-      if (product.id === id) {
-        return { ...product, quantity };
-      }
-
-      return product;
-    });
-
-    return setShop(newArray);
-  };
-
   const increase = () => {
     setQuatity(quantity + 1);
 
     if (checkItem()) {
-      return settingNewArray();
+      const newArray = shop.map((product) => {
+        if (product.id === id) {
+          return { ...product, quantity: quantity + 1 };
+        }
+
+        return product;
+      });
+
+      return setShop(newArray);
     }
 
-    const newArray = [...shop, { quantity, id, name, price }];
+    const newArray = [...shop, { quantity: quantity + 1, id, name, price }];
     setShop(newArray);
   };
 
@@ -44,15 +40,48 @@ function ProductCard({ item }) {
 
     if (quantity > 0) {
       setQuatity(quantity - 1);
-      return settingNewArray();
+      const newArray = shop.map((product) => {
+        if (product.id === id) {
+          return { ...product, quantity: quantity - 1 };
+        }
+
+        return product;
+      });
+
+      return setShop(newArray);
     }
   };
+
+  const handleChange = ({ target }) => {
+    setQuatity(Number(target.value));
+
+    if (Number(target.value) !== 0 && checkItem()) {
+      const newArray = shop.map((product) => {
+        if (product.id === id) {
+          return { ...product, quantity: Number(target.value) };
+        }
+        return product;
+      });
+
+      return setShop(newArray);
+    }
+
+    if (Number(target.value) !== 0 && !checkItem()) {
+      const newArray = [...shop, { quantity: target.value, id, name, price }];
+      return setShop(newArray);
+    }
+
+    const newArray = shop.filter((product) => product.id !== id);
+    setShop(newArray);
+  };
+
+  const productPrice = price.replace(/\./ig, ',');
 
   return (
     <div>
       <div>
         <span data-testid={ `customer_products__element-card-price-${id}` }>
-          { `R$ ${price}` }
+          { productPrice }
         </span>
 
         <img
@@ -68,9 +97,28 @@ function ProductCard({ item }) {
         </span>
 
         <div>
-          <button type="button" onClick={ () => decrease() }> - </button>
-          <span>{ quantity }</span>
-          <button type="button" onClick={ () => increase() }> + </button>
+          <button
+            type="button"
+            onClick={ () => decrease() }
+            data-testid={ `customer_products__button-card-rm-item-${id}` }
+          >
+            -
+          </button>
+
+          <input
+            type="text"
+            onChange={ handleChange }
+            value={ quantity }
+            data-testid={ `customer_products__input-card-quantity-${id}` }
+          />
+
+          <button
+            type="button"
+            onClick={ () => increase() }
+            data-testid={ `customer_products__button-card-add-item-${id}` }
+          >
+            +
+          </button>
         </div>
       </div>
     </div>
