@@ -16,7 +16,17 @@ const updateStatus = async (req, res) => {
   return res.status(updatedSale.status).json(updatedSale.message);
 };
 
+const createSale = async (req, res) => {
+
+const createdSale = await salesService.createSale(req.body);
+
+return res.status(createdSale.status).json(createdSale.message); 
+
+
+}
+
 module.exports = {
     findByUserId,
     updateStatus,
+    createSale,
 };

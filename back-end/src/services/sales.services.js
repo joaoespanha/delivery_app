@@ -1,4 +1,4 @@
-const { Sale } = require('../database/models');
+const { Sale, SalesProducts, sequelize } = require('../database/models');
 
 const findByUserId = async (userId) => {
     console.log('looooog', userId);
@@ -27,4 +27,27 @@ const updateStatus = async (saleId, status) => {
     return { status: doesSaleExists.status, message: doesSaleExists.message };
 };
 
-module.exports = { findByUserId, updateStatus };
+const createSale = async ({
+    userId,
+    sellerId,
+    totalPrice,
+    deliveryAddress,
+    deliveryNumber,
+    saleDate,
+    status,
+    products
+  }) => {
+      const newSale = await Sale.create(
+        { userId, sellerId, totalPrice, deliveryAddress, deliveryNumber, saleDate, status });
+        console.log(newSale.dataValues.id);
+      const salesProducts = await Promise.all(products.map ( async (product) => await SalesProducts.create(
+          { 
+            productId: product.id,
+            saleId: newSale.dataValues.id,
+            quantity: product.quantity,
+          })
+        ));
+    return { status: 201, message: newSale  };
+  };
+
+module.exports = { findByUserId, updateStatus, createSale };
