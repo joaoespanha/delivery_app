@@ -17,13 +17,9 @@ const updateStatus = async (req, res) => {
 };
 
 const createSale = async (req, res) => {
-
-const createdSale = await salesService.createSale(req.body);
-
-return res.status(createdSale.status).json(createdSale.message); 
-
-
-}
+  const createdSale = await salesService.createSale(req.body);
+  return res.status(createdSale.status).json(createdSale.message);
+};
 
 module.exports = {
     findByUserId,
