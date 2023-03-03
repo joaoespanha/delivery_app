@@ -16,12 +16,10 @@ const findBySaleId = async (saleId) => {
 
     return { status: 200, message: sale };
 };
-
 const updateStatus = async (saleId, status) => {
-
-    const doesSaleExists = await findBySaleId(saleId)
+    const doesSaleExists = await findBySaleId(saleId);
     
-    if(doesSaleExists.status === 200) {
+    if (doesSaleExists.status === 200) {
         const [[updatedSale]] = await Sale.update({ status }, { where: { saleId } });
         console.log('updated saaaale', updatedSale);
         return { status: 204, message: updatedSale };

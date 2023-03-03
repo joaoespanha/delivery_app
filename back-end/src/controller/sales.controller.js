@@ -9,12 +9,12 @@ const findByUserId = async (req, res) => {
 
 const updateStatus = async (req, res) => {
   const { id } = req.params;
-  const { status } =req.body;
+  const { status } = req.body;
 
   const updatedSale = await salesService.updateStatus(id, status);
 
   return res.status(updatedSale.status).json(updatedSale.message);
-}
+};
 
 module.exports = {
     findByUserId,
