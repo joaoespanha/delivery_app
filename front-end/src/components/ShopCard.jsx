@@ -14,7 +14,7 @@ function ShopCard({ item, i }) {
     <div>
       <span data-testid={ `customer_checkout__element-order-table-item-number-${i}` }>
         {
-          i
+          i + 1
         }
       </span>
 
@@ -32,20 +32,20 @@ function ShopCard({ item, i }) {
 
       <span data-testid={ `customer_checkout__element-order-table-unit-price-${i}` }>
         {
-          item.price
+          item.price.replace(/\./ig, ',')
         }
       </span>
 
       <span data-testid={ `customer_checkout__element-order-table-sub-total-${i}` }>
         {
-          Number(item.price) * Number(item.quantity)
+          (Number(item.price) * Number(item.quantity)).toFixed(2).replace(/\./ig, ',')
         }
       </span>
 
       <button
         type="button"
         data-testid={ `customer_checkout__element-order-table-remove-${i}` }
-        onChange={ remove }
+        onClick={ remove }
       >
         Remover
       </button>
@@ -54,10 +54,11 @@ function ShopCard({ item, i }) {
 }
 
 ShopCard.propTypes = {
+  i: PropTypes.number.isRequired,
   item: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
+    price: PropTypes.string.isRequired,
     quantity: PropTypes.number.isRequired,
   }).isRequired,
 };
