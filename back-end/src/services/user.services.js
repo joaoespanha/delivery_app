@@ -1,8 +1,5 @@
 const { User } = require('../database/models');
 
-
-
-
 const getAllByRole = async (role) => {
     const users = await User.findAll({ where: { role } });
 
