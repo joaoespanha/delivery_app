@@ -22,7 +22,7 @@ function Checkout() {
 
   const getSellers = async () => {
     const { token } = getLocalStorage('user');
-    const response = await get('user?role=seller', {
+    const response = await get('user/search?role=seller', {
       headers: {
         Authorization: token,
       },
@@ -44,7 +44,7 @@ function Checkout() {
       deliveryAddress: address,
       deliveryNumber: number,
       saleDate: new Date(),
-      status: 'pendente',
+      status: 'Pendente',
       products: shop.map(({ id: productId, quantity }) => ({ id: productId, quantity })),
     }, {
       headers: {
