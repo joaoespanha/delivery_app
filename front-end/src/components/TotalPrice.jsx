@@ -17,7 +17,7 @@ function TotalPrice({ total }) {
       }
     </span>
   );
-};
+}
 
 TotalPrice.propTypes = {
   total: PropTypes.number.isRequired,
