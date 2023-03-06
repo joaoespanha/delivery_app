@@ -5,7 +5,7 @@ import { patch } from '../utils/api';
 import { getLocalStorage } from '../utils/storage';
 
 function DetailsLabel({ sale }) {
-  const { pathname } = useLocation;
+  const { pathname } = useLocation();
 
   const checkPath = pathname.split('/').includes('customer');
 
@@ -40,7 +40,7 @@ function DetailsLabel({ sale }) {
           <span
             data-testid="customer_order_details__element-order-details-label-seller-name"
           >
-            { sale.seller }
+            { sale.seller.name }
           </span>
         )
       }
@@ -66,7 +66,9 @@ function DetailsLabel({ sale }) {
 DetailsLabel.propTypes = {
   sale: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    seller: PropTypes.string.isRequired,
+    seller: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    }).isRequired,
     saleDate: PropTypes.instanceOf(Date),
     status: PropTypes.string.isRequired,
   }).isRequired,

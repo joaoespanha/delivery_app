@@ -9,6 +9,7 @@ import TotalPrice from '../components/TotalPrice';
 
 function CustomerOrderDetails() {
   const [sale, setSale] = useState({});
+  const [pŕoducts, setProducts] = useState([]);
 
   const { pathname } = useLocation();
 
@@ -23,6 +24,16 @@ function CustomerOrderDetails() {
     });
 
     setSale(response.data);
+
+    const items = response.data.products.map(({
+      id,
+      name,
+      price,
+      urlImage,
+      SalesProducts: { quantity },
+    }) => ({ id, name, price, urlImage, quantity }));
+
+    setProducts(items);
   };
 
   useEffect(() => {
@@ -32,9 +43,9 @@ function CustomerOrderDetails() {
   return (
     <main>
       <CustomerNavBar />
-      <DetailsLabel />
+      <DetailsLabel sale={ sale } />
       {
-        sale?.products.map((product, i) => (
+        pŕoducts.map((product, i) => (
           <ShopCard item={ product } i={ i } key={ `${i}${product.id}` } />
         ))
       }
