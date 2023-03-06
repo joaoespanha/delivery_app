@@ -1,7 +1,6 @@
-const { Sale, SalesProducts } = require('../database/models');
+const { Sale, SalesProducts, Product, User } = require('../database/models');
 
 const findByUserId = async (userId) => {
-    console.log('looooog', userId);
     const sales = await Sale.findAll({ where: { userId } });
     console.log('salessss', sales);
     if (sales.length <= 0) return { status: 404, message: 'sales not found' };
@@ -46,4 +45,14 @@ const createSale = async ({
     return { status: 201, message: newSale };
   };
 
-module.exports = { findByUserId, updateStatus, createSale };
+  const getSaleById = async (id) => {
+    const sale = await Sale.findOne({ where: { id }, include: [
+        { model: User, as: 'seller', attributes:  ['name'] },
+        { model: Product, as: 'products', through: { attributes: ['quantity'] } },
+    ],
+    attributes: { exclude: ['deliveryAddress', 'deliveryNumber', 'sellerId'] },
+    });
+    return { status: 201, message: sale};
+  }
+
+module.exports = { findByUserId, updateStatus, createSale, getSaleById };
