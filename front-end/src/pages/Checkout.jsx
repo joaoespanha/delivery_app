@@ -1,13 +1,14 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import CustomerNavBar from '../components/CustomerNavBar';
-import customerContext from '../context/CustomerContext';
-import ShopCard from '../components/ShopCard';
 import { post, get } from '../utils/api';
 import { getLocalStorage } from '../utils/storage';
+import customerContext from '../context/CustomerContext';
+import CustomerNavBar from '../components/CustomerNavBar';
+import ShopCard from '../components/ShopCard';
+import TotalPrice from '../components/TotalPrice';
 
 function Checkout() {
-  const { shop } = useContext(customerContext);
+  const { shop, setShop } = useContext(customerContext);
   const [sellers, setSellers] = useState([]);
   const [seller, setSeller] = useState(2);
   const [address, setAddress] = useState('');
@@ -21,7 +22,7 @@ function Checkout() {
 
   const getSellers = async () => {
     const { token } = getLocalStorage('user');
-    const response = await get('user?role=seller', {
+    const response = await get('user/search?role=seller', {
       headers: {
         Authorization: token,
       },
@@ -36,14 +37,14 @@ function Checkout() {
 
   const buy = async () => {
     const { token, id: userId } = getLocalStorage('user');
-    const { id } = await post('user?role=seller', {
+    const response = await post('sales', {
       userId,
       sellerId: seller,
       totalPrice: total,
       deliveryAddress: address,
       deliveryNumber: number,
       saleDate: new Date(),
-      status: 'pendente',
+      status: 'Pendente',
       products: shop.map(({ id: productId, quantity }) => ({ id: productId, quantity })),
     }, {
       headers: {
@@ -51,7 +52,8 @@ function Checkout() {
       },
     });
 
-    history.push(`/customer/orders/${id}`);
+    setShop([]);
+    history.push(`/customer/orders/${response.data.id}`);
   };
 
   return (
@@ -68,11 +70,7 @@ function Checkout() {
         }
       </div>
 
-      <span data-testid="customer_checkout__element-order-total-price">
-        {
-          total.replace(/\./ig, ',')
-        }
-      </span>
+      <TotalPrice total={ total } />
 
       <span>Detalhes e Endereço da entrega</span>
 
