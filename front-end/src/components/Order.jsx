@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-function Order({ order, i }) {
+function Order({ order }) {
   const { id, saleDate, status, totalPrice } = order;
   const history = useHistory();
 
@@ -12,9 +12,9 @@ function Order({ order, i }) {
 
   return (
     <div onClick={ takesToDetails } aria-hidden="true">
-      <span data-testid={ `customer_orders__element-order-${id}` }>
+      <span data-testid={ `customer_orders__element-order-id-${id}` }>
         {
-          i
+          id
         }
       </span>
 
@@ -40,7 +40,6 @@ function Order({ order, i }) {
 }
 
 Order.propTypes = {
-  i: PropTypes.number.isRequired,
   order: PropTypes.shape({
     id: PropTypes.number.isRequired,
     saleDate: PropTypes.instanceOf(Date),

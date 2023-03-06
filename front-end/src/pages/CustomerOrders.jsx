@@ -29,7 +29,7 @@ function CustomerOrders() {
       <section>
         {
           orders.map((order, i) => (
-            <Order order={ order } i={ i } key={ `${order.id}-${i}` } />
+            <Order order={ order } key={ `${order.id}-${i}` } />
           ))
         }
       </section>
