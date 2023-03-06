@@ -36,7 +36,7 @@ function Checkout() {
 
   const buy = async () => {
     const { token, id: userId } = getLocalStorage('user');
-    const { id } = await post('user?role=seller', {
+    const response = await post('sales', {
       userId,
       sellerId: seller,
       totalPrice: total,
@@ -51,7 +51,7 @@ function Checkout() {
       },
     });
 
-    history.push(`/customer/orders/${id}`);
+    history.push(`/customer/orders/${response.data.id}`);
   };
 
   return (
