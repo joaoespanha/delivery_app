@@ -46,13 +46,16 @@ const createSale = async ({
   };
 
   const getSaleById = async (id) => {
-    const sale = await Sale.findOne({ where: { id }, include: [
-        { model: User, as: 'seller', attributes:  ['name'] },
-        { model: Product, as: 'products', through: { attributes: ['quantity'] } },
-    ],
-    attributes: { exclude: ['deliveryAddress', 'deliveryNumber', 'sellerId'] },
-    });
-    return { status: 201, message: sale};
-  }
+    const sale = await Sale.findOne(
+        { where: { id }, 
+            include: [
+                { model: User, as: 'seller', attributes: ['name'] },
+                { model: Product, as: 'products', through: { attributes: ['quantity'] } },
+            ],
+            attributes: { exclude: ['deliveryAddress', 'deliveryNumber', 'sellerId'] },
+        },
+    );
+    return { status: 201, message: sale };
+  };
 
 module.exports = { findByUserId, updateStatus, createSale, getSaleById };

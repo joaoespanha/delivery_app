@@ -6,8 +6,8 @@ const { validateTokenMiddle } = require('../middlewares/tokenValidation.middlewa
 const salesRoute = express.Router();
 
 salesRoute.get('/customer/:id', validateTokenMiddle, salesController.findByUserId);
-salesRoute.get('/:id' , salesController.getSaleById);
+salesRoute.get('/:id', validateTokenMiddle, salesController.getSaleById);
 salesRoute.patch('/:id', validateTokenMiddle, salesController.updateStatus);
-salesRoute.post('/', salesController.createSale);
+salesRoute.post('/', validateTokenMiddle, salesController.createSale);
 
 module.exports = salesRoute;
