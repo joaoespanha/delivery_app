@@ -1,9 +1,9 @@
 const salesService = require('../services/sales.services');
 
 const findByUserId = async (req, res) => {
-  const { userId } = req.params;
+  const { id } = req.params;
 
-  const { message, status } = await salesService.findByUserId(+userId);
+  const { message, status } = await salesService.findByUserId(+id);
   return res.status(status).json(message);
 };
 
@@ -21,8 +21,16 @@ const createSale = async (req, res) => {
   return res.status(createdSale.status).json(createdSale.message);
 };
 
+const getSaleById = async (req, res) => {
+  const { id } = req.params;
+  console.log(id);
+  const sale = await salesService.getSaleById(Number(id));
+  return res.status(sale.status).json(sale.message);
+};
+
 module.exports = {
     findByUserId,
     updateStatus,
     createSale,
+    getSaleById,
 };
