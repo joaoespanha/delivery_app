@@ -28,9 +28,17 @@ const getSaleById = async (req, res) => {
   return res.status(sale.status).json(sale.message);
 };
 
+const findBySellerId = async (req, res) => {
+  const { id } = req.params;
+
+  const { message, status } = await salesService.findBySellerId(Number(id));
+  return res.status(status).json(message);
+};
+
 module.exports = {
     findByUserId,
     updateStatus,
     createSale,
     getSaleById,
+    findBySellerId,
 };
