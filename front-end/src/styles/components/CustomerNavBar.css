@@ -1,0 +1,42 @@
+.header-container {
+  align-items: center;
+  background-color: var(--black-app);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 50px;
+}
+
+.div-links-header-left {
+  align-items: center;
+  display: flex;
+}
+
+.logotipo-header {
+  height: 70px;
+  margin-right: 20px;
+}
+
+.links-header {
+  color: var(--yellow-app);
+  font-weight: 600;
+  margin: 0 50px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.div-links-header-right {
+  align-items: center;
+  display: flex;
+}
+
+.span-header {
+  font-weight: 600;
+  margin-right: 50px;
+}
+
+.button-header {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
