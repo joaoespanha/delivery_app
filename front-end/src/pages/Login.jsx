@@ -31,7 +31,7 @@ function Login() {
 
         if (user.role === 'administrator') history.push('admin/manage');
         if (user.role === 'seller') history.push('seller/orders');
-    
+
         history.push('customer/products');
       }
     } catch (error) {
@@ -65,7 +65,7 @@ function Login() {
 
   useEffect(() => {
     checkLogin();
-  }, [])
+  }, []);
 
   return (
     <div className="container-login-register">
