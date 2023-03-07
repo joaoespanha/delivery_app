@@ -1,5 +1,9 @@
 const userService = require('../services/user.services');
 
+const findAll = async (_req, res) => {
+    const { status, message } = await userService.findAll();
+    return res.status(status).json(message);
+};
 const getAllByRole = async (req, res) => {
   const roleToSearch = req.query.role;
   
@@ -9,4 +13,5 @@ const getAllByRole = async (req, res) => {
 
 module.exports = {
     getAllByRole,
+    findAll,
 };

@@ -1,11 +1,11 @@
 const express = require('express');
 
+const userController = require('../controller/user.controller');
 const { validateTokenMiddle } = require('../middlewares/tokenValidation.middlewares');
 
-const router = express.Router();
+const userRoute = express.Router();
 
-const userController = require('../controller/user.controller');
+userRoute.get('/', validateTokenMiddle, userController.findAll);
+userRoute.get('/search', validateTokenMiddle, userController.getAllByRole);
 
-router.get('/search', validateTokenMiddle, userController.getAllByRole);
-
-module.exports = router;
+module.exports = userRoute;

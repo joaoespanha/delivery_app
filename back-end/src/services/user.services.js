@@ -1,5 +1,10 @@
 const { User } = require('../database/models');
 
+const findAll = async () => {
+    const users = await User.findAll();
+
+    return { message: users, status: 200 };
+};
 const getAllByRole = async (role) => {
     const users = await User.findAll({ where: { role } });
 
@@ -8,4 +13,5 @@ const getAllByRole = async (role) => {
 
 module.exports = {
     getAllByRole,
+    findAll,
 };
