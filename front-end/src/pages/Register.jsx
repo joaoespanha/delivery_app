@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { post } from '../utils/api';
 import { setLocalStorage } from '../utils/storage';
+import '../styles/pages/LoginRegister.css';
+import Logotipo from '../assets/images/logotipo1.svg';
 
 const MINIMUM_PASSWORD_LENGTH = 6;
 const MINIMUM_NAME_LENGTH = 12;
@@ -40,39 +42,47 @@ function Register() {
   };
 
   return (
-    <div>
-      <form>
-        <label htmlFor="name">
-          Name
+    <div className="container-login-register">
+      <div className="div-logotipo-login-register">
+        <img className="logotipo-login-register" src={ Logotipo } alt="logotipo" />
+      </div>
+      <h1 className="title-login">Seja bem-vindo!</h1>
+      <form className="form-login-register">
+        <label className="label-login-register" htmlFor="name">
           <input
+            className="input-login-register"
             type="text"
             id="name"
+            placeholder="Nome"
             data-testid="common_register__input-name"
             onChange={ ({ target }) => setName(target.value) }
           />
         </label>
 
-        <label htmlFor="email">
-          Email
+        <label className="label-login-register" htmlFor="email">
           <input
+            className="input-login-register"
             type="email"
             id="email"
+            placeholder="E-mail"
             data-testid="common_register__input-email"
             onChange={ ({ target }) => setEmail(target.value) }
           />
         </label>
 
-        <label htmlFor="password">
-          Password
+        <label className="label-login-register" htmlFor="password">
           <input
+            className="input-login-register"
             type="password"
             id="password"
+            placeholder="Senha"
             data-testid="common_register__input-password"
             onChange={ ({ target }) => setPassword(target.value) }
           />
         </label>
 
         <button
+          className="button-login"
           type="button"
           data-testid="common_register__button-register"
           disabled={ isDisabled }
@@ -84,7 +94,10 @@ function Register() {
 
       {
         errorMessage && (
-          <span data-testid="common_register__element-invalid_register">
+          <span
+            className="span-login-register"
+            data-testid="common_register__element-invalid_register"
+          >
             Usuário já cadastrado
           </span>
         )

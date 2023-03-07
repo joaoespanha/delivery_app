@@ -33,7 +33,7 @@ module.exports = {
       },
       totalPrice: {
         allowNull: false,
-        type: Sequelize.DOUBLE,
+        type: Sequelize.DECIMAL(4,2),
         field: 'total_price',
       },
       deliveryAddress: {

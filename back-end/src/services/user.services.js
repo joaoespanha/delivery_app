@@ -5,7 +5,13 @@ const findAll = async () => {
 
     return { message: users, status: 200 };
 };
+const getAllByRole = async (role) => {
+    const users = await User.findAll({ where: { role } });
+
+    return { type: null, message: users, status: 200 };
+};
 
 module.exports = {
+    getAllByRole,
     findAll,
 };
