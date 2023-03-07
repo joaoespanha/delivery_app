@@ -50,7 +50,6 @@ function Login() {
       <h1 className="title-login-register">Bora tomar uma?</h1>
       <form className="form-login-register">
         <label className="label-login-register" htmlFor="email">
-          Email
           <input
             className="input-login-register"
             type="email"
@@ -62,7 +61,6 @@ function Login() {
         </label>
 
         <label className="label-login-register" htmlFor="password">
-          Password
           <input
             className="input-login-register"
             type="password"
@@ -80,7 +78,7 @@ function Login() {
           disabled={ isDisabled }
           onClick={ login }
         >
-          Login
+          Entrar
         </button>
 
         <button
@@ -89,7 +87,7 @@ function Login() {
           data-testid="common_login__button-register"
           onClick={ () => history.push('register') }
         >
-          Ainda não tem conta
+          Cadastrar
         </button>
       </form>
 

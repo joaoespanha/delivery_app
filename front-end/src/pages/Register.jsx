@@ -49,33 +49,33 @@ function Register() {
       <h1 className="title-login">Seja bem-vindo!</h1>
       <form className="form-login-register">
         <label className="label-login-register" htmlFor="name">
-          Name
           <input
             className="input-login-register"
             type="text"
             id="name"
+            placeholder="Nome"
             data-testid="common_register__input-name"
             onChange={ ({ target }) => setName(target.value) }
           />
         </label>
 
         <label className="label-login-register" htmlFor="email">
-          Email
           <input
             className="input-login-register"
             type="email"
             id="email"
+            placeholder="E-mail"
             data-testid="common_register__input-email"
             onChange={ ({ target }) => setEmail(target.value) }
           />
         </label>
 
         <label className="label-login-register" htmlFor="password">
-          Password
           <input
             className="input-login-register"
             type="password"
             id="password"
+            placeholder="Senha"
             data-testid="common_register__input-password"
             onChange={ ({ target }) => setPassword(target.value) }
           />
