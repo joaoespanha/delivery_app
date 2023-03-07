@@ -6,6 +6,7 @@ import CustomerNavBar from '../components/CustomerNavBar';
 import ProductCard from '../components/ProductCard';
 import customerContext from '../context/CustomerContext';
 import '../styles/pages/CustomerProducts.css';
+import IconCart from '../assets/images/iconCart.svg';
 
 function CustomerProducts() {
   const [products, setProducts] = useState([]);
@@ -56,12 +57,17 @@ function CustomerProducts() {
           }
         </div>
         <button
+          className="button-cart-total"
           type="button"
           data-testid="customer_products__button-cart"
           onClick={ () => history.push('checkout') }
           disabled={ total === 0 }
         >
-          <span data-testid="customer_products__checkout-bottom-value">
+          <img src={ IconCart } alt="icon-cart" />
+          <span
+            className="span-cart-total"
+            data-testid="customer_products__checkout-bottom-value"
+          >
             {
               totalValue
             }

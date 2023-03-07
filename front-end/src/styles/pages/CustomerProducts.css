@@ -18,3 +18,28 @@ main {
   grid-template-columns: repeat(4, 1fr);
   margin: 50px 100px;
 }
+
+.button-cart-total {
+  align-items: center;
+  background-color: var(--yellow-app);
+  border: solid 1px var(--black-app);
+  border-radius: 10px;
+  bottom: 5%;
+  color: var(--black-app);
+  cursor: pointer;
+  display: flex;
+  font-size: 2rem;
+  font-weight: 600;
+  height: 80px;
+  justify-content: space-around;
+  margin: 0;
+  padding: 10px 30px;
+  position: fixed;
+  right: 15%;
+  width: 300px;
+}
+
+.span-cart-total:before {
+  content: 'R$';
+  margin-right: 5px;
+}

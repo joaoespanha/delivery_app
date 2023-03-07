@@ -61,6 +61,11 @@
   font-weight: 600;
 }
 
+.price-product-card:before {
+  content: 'R$';
+  margin-right: 5px;
+}
+
 .button-alter-qnt {
   align-items: center;
   display: flex;
@@ -86,6 +91,7 @@
 .input-qnt {
   border: none;
   font-weight: 600;
+  padding: 10px 0;
   text-align: center;
   width: 30px;
 }
