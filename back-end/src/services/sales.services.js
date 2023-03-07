@@ -4,23 +4,21 @@ const SALE_NOT_FOUND = 'sale not found';
 
 const findByUserId = async (userId) => {
     const sales = await Sale.findAll({ where: { userId } });
-    console.log('salessss', sales);
     if (sales.length <= 0) return { status: 404, message: SALE_NOT_FOUND };
     return { status: 200, message: sales };
 };
 
-const findBySaleId = async (saleId) => {
-    const sale = await Sale.findOne({ where: { saleId } });
-    if (sale.length <= 0) return { status: 404, message: SALE_NOT_FOUND };
+const findBySaleId = async (id) => {
+    const sale = await Sale.findOne({ where: { id } });
+    if (!sale) return { status: 404, message: SALE_NOT_FOUND };
 
     return { status: 200, message: sale };
 };
-const updateStatus = async (saleId, status) => {
-    const doesSaleExists = await findBySaleId(saleId);
+const updateStatus = async (id, status) => {
+    const doesSaleExists = await findBySaleId(id);
     
     if (doesSaleExists.status === 200) {
-        const [[updatedSale]] = await Sale.update({ status }, { where: { saleId } });
-        console.log('updated saaaale', updatedSale);
+        const updatedSale = await Sale.update({ status }, { where: { id } });
         return { status: 204, message: updatedSale };
     }
     return { status: doesSaleExists.status, message: doesSaleExists.message };
