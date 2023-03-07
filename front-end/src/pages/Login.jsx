@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { post } from '../utils/api';
-import { setLocalStorage } from '../utils/storage';
+import { post, get } from '../utils/api';
+import { setLocalStorage, getLocalStorage } from '../utils/storage';
 import '../styles/pages/LoginRegister.css';
 import Logotipo from '../assets/images/logotipo1.svg';
 
@@ -17,6 +17,27 @@ function Login() {
   const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
   const isDisabled = password.length < MINIMUM_PASSWORD_LENGTH
   || !emailRegex.test(email);
+
+  const checkLogin = async () => {
+    const user = getLocalStorage('user');
+
+    try {
+      if (user.token) {
+        await get('/auth', {
+          headers: {
+            Authorization: user.token,
+          },
+        });
+
+        if (user.role === 'administrator') history.push('admin/manage');
+        if (user.role === 'seller') history.push('seller/orders');
+    
+        history.push('customer/products');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const login = async () => {
     let userLogin;
@@ -41,6 +62,10 @@ function Login() {
 
     history.push('customer/products');
   };
+
+  useEffect(() => {
+    checkLogin();
+  }, [])
 
   return (
     <div className="container-login-register">
