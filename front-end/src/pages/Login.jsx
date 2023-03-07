@@ -18,24 +18,13 @@ function Login() {
   const isDisabled = password.length < MINIMUM_PASSWORD_LENGTH
   || !emailRegex.test(email);
 
-  const checkLogin = async () => {
-    const user = getLocalStorage('user');
+  const user = getLocalStorage('user');
+  const checkLogin = () => {
+    if (user && user?.token) {
+      if (user.role === 'administrator') history.push('admin/manage');
+      if (user.role === 'seller') history.push('seller/orders');
 
-    try {
-      if (user.token) {
-        await get('/auth', {
-          headers: {
-            Authorization: user.token,
-          },
-        });
-
-        if (user.role === 'administrator') history.push('admin/manage');
-        if (user.role === 'seller') history.push('seller/orders');
-
-        history.push('customer/products');
-      }
-    } catch (error) {
-      console.log(error);
+      history.push('customer/products');
     }
   };
 
