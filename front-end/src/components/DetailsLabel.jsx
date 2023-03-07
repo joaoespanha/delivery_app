@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
 import { patch } from '../utils/api';
@@ -6,6 +6,7 @@ import { getLocalStorage } from '../utils/storage';
 
 function DetailsLabel({ sale }) {
   const { pathname } = useLocation();
+  const [deliveryStatus, setDeliveryStatus] = useState(sale.status);
 
   const checkPath = pathname.split('/').includes('customer');
 
@@ -24,11 +25,13 @@ function DetailsLabel({ sale }) {
   const changeStatus = async (status) => {
     const { token } = getLocalStorage('user');
 
-    await patch(`sale/${sale.id}`, { status }, {
+    await patch(`sales/${sale.id}`, { status }, {
       headers: {
         Authorization: token,
       },
     });
+
+    setDeliveryStatus(status);
   };
 
   return (
@@ -53,7 +56,9 @@ function DetailsLabel({ sale }) {
         checkPath && (
           <button
             type="button"
+            data-testid="customer_order_details__button-delivery-check"
             onClick={ () => changeStatus('Entregue') }
+            disabled={ deliveryStatus === 'Entregue' }
           >
             Marcar como entregue
           </button>

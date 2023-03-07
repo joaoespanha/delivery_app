@@ -43,13 +43,22 @@ function CustomerOrderDetails() {
   return (
     <main>
       <CustomerNavBar />
-      <DetailsLabel sale={ sale } />
+
       {
-        pŕoducts.map((product, i) => (
-          <ShopCard item={ product } i={ i } key={ `${i}${product.id}` } />
-        ))
+        sale.id && (
+          <section>
+            <DetailsLabel sale={ sale } />
+
+            {
+              pŕoducts.map((product, i) => (
+                <ShopCard item={ product } i={ i } key={ `${i}${product.id}` } />
+              ))
+            }
+
+            <TotalPrice total={ sale.totalPrice } />
+          </section>
+        )
       }
-      <TotalPrice />
     </main>
   );
 }
