@@ -44,7 +44,9 @@ function Login() {
 
   return (
     <div className="container-login-register">
-      <img className="logotipo-login-register" src={ Logotipo } alt="logotipo" />
+      <div className="div-logotipo-login-register">
+        <img className="logotipo-login-register" src={ Logotipo } alt="logotipo" />
+      </div>
       <h1 className="title-login-register">Bora tomar uma?</h1>
       <form className="form-login-register">
         <label className="label-login-register" htmlFor="email">
