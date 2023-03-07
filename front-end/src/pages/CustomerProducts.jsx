@@ -5,6 +5,7 @@ import { getLocalStorage } from '../utils/storage';
 import CustomerNavBar from '../components/CustomerNavBar';
 import ProductCard from '../components/ProductCard';
 import customerContext from '../context/CustomerContext';
+import '../styles/pages/CustomerProducts.css';
 
 function CustomerProducts() {
   const [products, setProducts] = useState([]);
