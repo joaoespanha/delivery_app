@@ -3,8 +3,8 @@
   background-color: var(--black-app);
   color: white;
   display: flex;
-  justify-content: space-between;
-  padding: 10px 50px;
+  justify-content: space-around;
+  padding: 10px 0;
 }
 
 .div-links-header-left {
@@ -13,7 +13,7 @@
 }
 
 .logotipo-header {
-  height: 70px;
+  height: 80px;
   margin-right: 20px;
 }
 
