@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { post } from '../utils/api';
 import { setLocalStorage } from '../utils/storage';
+import '../styles/pages/LoginRegister.css';
+import Logotipo from '../assets/images/logotipo1.svg';
 
 const MINIMUM_PASSWORD_LENGTH = 6;
 
@@ -41,29 +43,36 @@ function Login() {
   };
 
   return (
-    <div>
-      <form>
-        <label htmlFor="email">
+    <div className="container-login-register">
+      <img className="logotipo-login-register" src={ Logotipo } alt="logotipo" />
+      <h1 className="title-login-register">Bora tomar uma?</h1>
+      <form className="form-login-register">
+        <label className="label-login-register" htmlFor="email">
           Email
           <input
+            className="input-login-register"
             type="email"
             id="email"
+            placeholder="E-mail"
             data-testid="common_login__input-email"
             onChange={ ({ target }) => setEmail(target.value) }
           />
         </label>
 
-        <label htmlFor="password">
+        <label className="label-login-register" htmlFor="password">
           Password
           <input
+            className="input-login-register"
             type="password"
             id="password"
+            placeholder="Senha"
             data-testid="common_login__input-password"
             onChange={ ({ target }) => setPassword(target.value) }
           />
         </label>
 
         <button
+          className="button-login"
           type="button"
           data-testid="common_login__button-login"
           disabled={ isDisabled }
@@ -73,6 +82,7 @@ function Login() {
         </button>
 
         <button
+          className="button-login-register"
           type="button"
           data-testid="common_login__button-register"
           onClick={ () => history.push('register') }
@@ -83,7 +93,10 @@ function Login() {
 
       {
         errorMessage && (
-          <span data-testid="common_login__element-invalid-email">
+          <span
+            data-testid="common_login__element-invalid-email"
+            className="span-login-register"
+          >
             Email ou senha incorreta
           </span>
         )
