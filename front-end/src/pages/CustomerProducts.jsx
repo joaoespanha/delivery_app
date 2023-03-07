@@ -47,13 +47,14 @@ function CustomerProducts() {
   return (
     <main>
       <CustomerNavBar />
-      <div>
-        {
-          products.map((product, i) => (
-            <ProductCard item={ product } key={ `${product.name}-${i}` } />
-          ))
-        }
-
+      <div className="container-product-card">
+        <div className="grid-product-card">
+          {
+            products.map((product, i) => (
+              <ProductCard item={ product } key={ `${product.name}-${i}` } />
+            ))
+          }
+        </div>
         <button
           type="button"
           data-testid="customer_products__button-cart"

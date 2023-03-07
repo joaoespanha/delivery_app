@@ -1,0 +1,20 @@
+main {
+  align-items: center;
+  background-color: var(--white-app);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+
+.container-product-card {
+  width: 1440px;
+}
+
+.grid-product-card {
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 50px 100px;
+}

@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import customerContext from '../context/CustomerContext';
+import '../styles/components/ProductCard.css';
 
 function ProductCard({ item }) {
   const { shop, setShop } = useContext(customerContext);
@@ -78,12 +79,8 @@ function ProductCard({ item }) {
   const productPrice = price.replace(/\./ig, ',');
 
   return (
-    <div>
-      <div>
-        <span data-testid={ `customer_products__element-card-price-${id}` }>
-          { productPrice }
-        </span>
-
+    <div className="product-card-container">
+      <div className="container-img-product-card">
         <img
           src={ urlImage }
           alt={ name }
@@ -91,34 +88,50 @@ function ProductCard({ item }) {
         />
       </div>
 
-      <div>
-        <span data-testid={ `customer_products__element-card-title-${id}` }>
+      <div className="container-infos-product-card">
+        <span
+          className="title-product-card"
+          data-testid={ `customer_products__element-card-title-${id}` }
+        >
           { name }
         </span>
 
-        <div>
-          <button
-            type="button"
-            onClick={ () => decrease() }
-            data-testid={ `customer_products__button-card-rm-item-${id}` }
-          >
-            -
-          </button>
+        <div className="container-children-infos-product-card">
+          <span
+            className="price-product-card"
+            data-testid={ `customer_products__element-card-price-${id}` }
 
-          <input
-            type="text"
-            onChange={ handleChange }
-            value={ quantity }
-            data-testid={ `customer_products__input-card-quantity-${id}` }
-          />
-
-          <button
-            type="button"
-            onClick={ () => increase() }
-            data-testid={ `customer_products__button-card-add-item-${id}` }
           >
-            +
-          </button>
+            { productPrice }
+          </span>
+
+          <div className="button-alter-qnt">
+            <button
+              className="button-modified-qnt button-down-qnt"
+              type="button"
+              onClick={ () => decrease() }
+              data-testid={ `customer_products__button-card-rm-item-${id}` }
+            >
+              -
+            </button>
+
+            <input
+              className="input-qnt"
+              type="text"
+              onChange={ handleChange }
+              value={ quantity }
+              data-testid={ `customer_products__input-card-quantity-${id}` }
+            />
+
+            <button
+              className="button-modified-qnt button-up-qnt"
+              type="button"
+              onClick={ () => increase() }
+              data-testid={ `customer_products__button-card-add-item-${id}` }
+            >
+              +
+            </button>
+          </div>
         </div>
       </div>
     </div>
