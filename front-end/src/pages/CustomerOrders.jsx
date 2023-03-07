@@ -7,9 +7,9 @@ import Order from '../components/Order';
 function CustomerOrders() {
   const [orders, setOrders] = useState([]);
 
+  const { id, token } = getLocalStorage('user');
   const getOrders = async () => {
-    const { id, token } = getLocalStorage('user');
-    const response = await get(`sales/${id}`, {
+    const response = await get(`sales/customer/${id}`, {
       headers: {
         Authorization: token,
       },

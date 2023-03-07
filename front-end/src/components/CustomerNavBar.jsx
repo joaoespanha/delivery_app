@@ -7,9 +7,8 @@ function CustomerNavBar() {
 
   const history = useHistory();
 
+  const user = getLocalStorage('user');
   useEffect(() => {
-    const user = getLocalStorage('user');
-
     const { name: userName } = user;
 
     setName(userName);

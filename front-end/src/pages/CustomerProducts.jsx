@@ -14,8 +14,8 @@ function CustomerProducts() {
 
   const { shop } = useContext(customerContext);
 
+  const { token } = getLocalStorage('user');
   const getProducts = async () => {
-    const { token } = getLocalStorage('user');
     const response = await get('products', {
       headers: {
         Authorization: token,
