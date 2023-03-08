@@ -15,8 +15,8 @@ function CustomerOrderDetails() {
 
   const saleId = pathname.split('/')[3];
 
+  const { token } = getLocalStorage('user');
   const getSale = async () => {
-    const { token } = getLocalStorage('user');
     const response = await get(`sales/${saleId}`, {
       headers: {
         Authorization: token,

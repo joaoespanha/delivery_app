@@ -8,26 +8,31 @@ function ShopCard({ item, i }) {
 
   const { pathname } = useLocation();
 
-  const checkPath = pathname.split('/').includes('checkout');
+  const checkSellerPath = pathname.split('/').includes('seller');
+  const checkCheckoutPath = pathname.split('/').includes('checkout');
+  const checkCustomerPath = pathname.split('/').includes('customer');
 
-  const dataTestNumber = checkPath
-    ? `customer_checkout__element-order-table-item-number-${i}`
-    : `customer_order_details__element-order-table-item-number-${i}`;
+  let dataTestNumber = `customer_checkout__element-order-table-item-number-${i}`;
+  let dataTestName = `customer_checkout__element-order-table-name-${i}`;
+  let dataTestQuantity = `customer_checkout__element-order-table-quantity-${i}`;
+  let dataTestPrice = `customer_checkout__element-order-table-unit-price-${i}`;
+  let dataTestSubTotal = `customer_checkout__element-order-table-sub-total-${i}`;
 
-  const dataTestName = checkPath ? `customer_checkout__element-order-table-name-${i}`
-    : `customer_order_details__element-order-table-name-${i}`;
+  if (checkSellerPath) {
+    dataTestNumber = `seller_order_details__element-order-table-item-number-${i}`;
+    dataTestName = `seller_order_details__element-order-table-name-${i}`;
+    dataTestQuantity = `seller_order_details__element-order-table-quantity-${i}`;
+    dataTestPrice = `seller_order_details__element-order-table-unit-price-${i}`;
+    dataTestSubTotal = `seller_order_details__element-order-table-sub-total-${i}`;
+  }
 
-  const dataTestQuantity = checkPath
-    ? `customer_checkout__element-order-table-quantity-${i}`
-    : `customer_order_details__element-order-table-quantity-${i}`;
-
-  const dataTestPrice = checkPath
-    ? `customer_checkout__element-order-table-unit-price-${i}`
-    : `customer_order_details__element-order-table-unit-price-${i}`;
-
-  const dataTestSubTotal = checkPath
-    ? `customer_checkout__element-order-table-sub-total-${i}`
-    : `customer_order_details__element-order-table-sub-total-${i}`;
+  if (checkCustomerPath && !checkCheckoutPath) {
+    dataTestNumber = `customer_order_details__element-order-table-item-number-${i}`;
+    dataTestName = `customer_order_details__element-order-table-name-${i}`;
+    dataTestQuantity = `customer_order_details__element-order-table-quantity-${i}`;
+    dataTestPrice = `customer_order_details__element-order-table-unit-price-${i}`;
+    dataTestSubTotal = `customer_order_details__element-order-table-sub-total-${i}`;
+  }
 
   const remove = () => {
     const newArray = shop.filter((product) => product.id !== item.id);
@@ -67,7 +72,7 @@ function ShopCard({ item, i }) {
       </span>
 
       {
-        checkPath && (
+        checkCheckoutPath && (
           <button
             type="button"
             data-testid={ `customer_checkout__element-order-table-remove-${i}` }

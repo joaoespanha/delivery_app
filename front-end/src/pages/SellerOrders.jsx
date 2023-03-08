@@ -4,12 +4,12 @@ import { get } from '../utils/api';
 import CustomerNavBar from '../components/CustomerNavBar';
 import Order from '../components/Order';
 
-function CustomerOrders() {
+function SellerOrders() {
   const [orders, setOrders] = useState([]);
 
   const { id, token } = getLocalStorage('user');
   const getOrders = async () => {
-    const response = await get(`sales/customer/${id}`, {
+    const response = await get(`sales/seller/${id}`, {
       headers: {
         Authorization: token,
       },
@@ -37,4 +37,4 @@ function CustomerOrders() {
   );
 }
 
-export default CustomerOrders;
+export default SellerOrders;

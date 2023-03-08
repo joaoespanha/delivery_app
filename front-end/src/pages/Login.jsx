@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { post, get } from '../utils/api';
+import { post } from '../utils/api';
 import { setLocalStorage, getLocalStorage } from '../utils/storage';
 import '../styles/pages/LoginRegister.css';
 import Logotipo from '../assets/images/logotipo1.svg';
@@ -18,24 +18,18 @@ function Login() {
   const isDisabled = password.length < MINIMUM_PASSWORD_LENGTH
   || !emailRegex.test(email);
 
-  const checkLogin = async () => {
-    const user = getLocalStorage('user');
-
-    try {
-      if (user.token) {
-        await get('/auth', {
-          headers: {
-            Authorization: user.token,
-          },
-        });
-
-        if (user.role === 'administrator') history.push('admin/manage');
-        if (user.role === 'seller') history.push('seller/orders');
-
-        history.push('customer/products');
+  const user = getLocalStorage('user');
+  const checkLogin = () => {
+    if (user && user?.token) {
+      if (user.role === 'administrator') {
+        return history.push('/admin/manage');
       }
-    } catch (error) {
-      console.log(error);
+
+      if (user.role === 'seller') {
+        return history.push('/seller/orders');
+      }
+
+      history.push('/customer/products');
     }
   };
 
@@ -57,10 +51,15 @@ function Login() {
 
     setLocalStorage('user', { token, name, email: userEmail, role, id });
 
-    if (role === 'administrator') history.push('admin/manage');
-    if (role === 'seller') history.push('seller/orders');
+    if (role === 'administrator') {
+      return history.push('/admin/manage');
+    }
 
-    history.push('customer/products');
+    if (role === 'seller') {
+      return history.push('/seller/orders');
+    }
+
+    history.push('/customer/products');
   };
 
   useEffect(() => {

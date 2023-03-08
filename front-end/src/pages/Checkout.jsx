@@ -20,8 +20,8 @@ function Checkout() {
     .reduce((acc, product) => acc + (Number(product.price) * Number(product.quantity)), 0)
     .toFixed(2);
 
+  const { token, id: userId } = getLocalStorage('user');
   const getSellers = async () => {
-    const { token } = getLocalStorage('user');
     const response = await get('user/search?role=seller', {
       headers: {
         Authorization: token,
@@ -36,14 +36,15 @@ function Checkout() {
   });
 
   const buy = async () => {
-    const { token, id: userId } = getLocalStorage('user');
+    const date = new Date(Date.now()).toISOString();
+
     const response = await post('sales', {
       userId,
       sellerId: seller,
       totalPrice: total,
       deliveryAddress: address,
       deliveryNumber: number,
-      saleDate: new Date(),
+      saleDate: date,
       status: 'Pendente',
       products: shop.map(({ id: productId, quantity }) => ({ id: productId, quantity })),
     }, {

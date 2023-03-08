@@ -4,6 +4,8 @@ import { useLocation } from 'react-router-dom';
 import { patch } from '../utils/api';
 import { getLocalStorage } from '../utils/storage';
 
+const DATE_SIZE = 10;
+
 function DetailsLabel({ sale }) {
   const { pathname } = useLocation();
   const [deliveryStatus, setDeliveryStatus] = useState(sale.status);
@@ -48,7 +50,9 @@ function DetailsLabel({ sale }) {
         )
       }
 
-      <span data-testid={ dataTestDate }>{ sale.saleDate }</span>
+      <span data-testid={ dataTestDate }>
+        { sale.saleDate.slice(0, DATE_SIZE).split('-').reverse().join('/') }
+      </span>
 
       <span data-testid={ dataTestStatus }>{ sale.status }</span>
 
@@ -58,10 +62,34 @@ function DetailsLabel({ sale }) {
             type="button"
             data-testid="customer_order_details__button-delivery-check"
             onClick={ () => changeStatus('Entregue') }
-            disabled={ deliveryStatus === 'Entregue' }
+            disabled={ deliveryStatus !== 'Em Trânsito' }
           >
             Marcar como entregue
           </button>
+        )
+      }
+
+      {
+        !checkPath && (
+          <div>
+            <button
+              type="button"
+              data-testid="seller_order_details__button-preparing-check"
+              onClick={ () => changeStatus('Preparando') }
+              disabled={ deliveryStatus !== 'Pendente' }
+            >
+              Preparar Pedido
+            </button>
+
+            <button
+              type="button"
+              data-testid="seller_order_details__button-dispatch-check"
+              onClick={ () => changeStatus('Em Trânsito') }
+              disabled={ deliveryStatus !== 'Preparando' }
+            >
+              Saiu para entrega
+            </button>
+          </div>
         )
       }
     </div>
