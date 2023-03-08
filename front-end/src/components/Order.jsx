@@ -57,7 +57,7 @@ function Order({ order }) {
 
       <span data-testid={ testIdPrice }>
         {
-          totalPrice
+          totalPrice.replace(/\./ig, ',')
         }
       </span>
 
