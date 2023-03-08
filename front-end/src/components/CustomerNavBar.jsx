@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { getLocalStorage, clearLocalStorage } from '../utils/storage';
-// import Logotipo from '../assets/images/logoHeader.svg';
-// import Logout from '../assets/images/botaoLogout.svg';
-// import '../styles/components/CustomerNavBar.css';
+import Logotipo from '../assets/images/logoHeader.svg';
+import Logout from '../assets/images/botaoLogout.svg';
+import '../styles/components/CustomerNavBar.css';
 
 function CustomerNavBar() {
   const [name, setName] = useState('');
@@ -46,7 +46,7 @@ function CustomerNavBar() {
   return (
     <nav className="header-container">
       <div className="div-links-header-left">
-        {/* <img src={ Logotipo } alt="logotipo" className="logotipo-header" /> */}
+        <img src={ Logotipo } alt="logotipo" className="logotipo-header" />
         <Link
           to="/customer/products"
           data-testid="customer_products__element-navbar-link-products"
@@ -76,8 +76,7 @@ function CustomerNavBar() {
           data-testid="customer_products__element-navbar-link-logout"
           className="button-header"
         >
-          Sair
-          {/* <img src={ Logout } alt="logout" /> */}
+          <img src={ Logout } alt="logout" />
         </button>
       </div>
     </nav>
