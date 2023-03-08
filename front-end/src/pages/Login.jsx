@@ -21,10 +21,15 @@ function Login() {
   const user = getLocalStorage('user');
   const checkLogin = () => {
     if (user && user?.token) {
-      if (user.role === 'administrator') history.push('admin/manage');
-      if (user.role === 'seller') history.push('seller/orders');
+      if (user.role === 'administrator') {
+        return history.push('/admin/manage');
+      }
 
-      history.push('customer/products');
+      if (user.role === 'seller') {
+        return history.push('/seller/orders');
+      }
+
+      history.push('/customer/products');
     }
   };
 
@@ -46,10 +51,15 @@ function Login() {
 
     setLocalStorage('user', { token, name, email: userEmail, role, id });
 
-    if (role === 'administrator') history.push('admin/manage');
-    if (role === 'seller') history.push('seller/orders');
+    if (role === 'administrator') {
+      return history.push('/admin/manage');
+    }
 
-    history.push('customer/products');
+    if (role === 'seller') {
+      return history.push('/seller/orders');
+    }
+
+    history.push('/customer/products');
   };
 
   useEffect(() => {
