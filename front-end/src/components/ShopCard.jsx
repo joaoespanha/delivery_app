@@ -61,15 +61,20 @@ function ShopCard({ item, i }) {
       </div>
 
       <div className="value-item-shop-card" data-testid={ dataTestPrice }>
-        {
-          item.price.replace(/\./ig, ',')
-        }
+        <span className="span-shopcard">
+
+          {
+            item.price.replace(/\./ig, ',')
+          }
+        </span>
       </div>
 
       <div className="value-total-item-shop-card" data-testid={ dataTestSubTotal }>
-        {
-          (Number(item.price) * Number(item.quantity)).toFixed(2).replace(/\./ig, ',')
-        }
+        <span className="span-shopcard">
+          {
+            (Number(item.price) * Number(item.quantity)).toFixed(2).replace(/\./ig, ',')
+          }
+        </span>
       </div>
 
       {
@@ -80,7 +85,7 @@ function ShopCard({ item, i }) {
             data-testid={ `customer_checkout__element-order-table-remove-${i}` }
             onClick={ remove }
           >
-            Remover
+            <span className="span-btn-shop-card"> ❌</span>
           </button>
         )
       }

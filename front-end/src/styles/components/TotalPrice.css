@@ -1,6 +1,17 @@
 .div-total-price {
-  display: flex;
+  background-color: var(--yellow-app);
+  border-radius: 10px;
   font-size: 30px;
-  margin: 10px 0;
+  font-weight: 600;
+  margin-top: 30px;
+  padding: 10px;
+  position: relative;
   text-align: center;
+  width: 230px;
+}
+
+.div-total-price:before {
+  content: 'Total: R$';
+  font-weight: 600;
+  margin-right: 5px;
 }

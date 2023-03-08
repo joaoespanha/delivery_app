@@ -61,30 +61,36 @@ function Checkout() {
   return (
     <main>
       <CustomerNavBar />
-
-      <h2 className="checkout-title">Finalizar pedido</h2>
-
-      <div className="container-shop-card">
-        <div className="bar-title-shop-card">
-          <div className="index-item-shop-card-title">Item</div>
-          <div className="name-item-shop-card-title">Descrição</div>
-          <div className="qnt-item-shop-card-title">Quantidade</div>
-          <div className="value-item-shop-card-title">Valor Unitário</div>
-          <div className="value-total-item-shop-card-title">Sub-total</div>
-          <div className="btn-remove-item-shop-card-title">Remover item</div>
-        </div>
-        {
-          shop.map((product, i) => (
-            <ShopCard item={ product } i={ i } key={ `${i}${product.id}` } />
-          ))
-        }
+      <div className="title-checkout">
+        <h2 className="checkout-title">Finalizar pedido</h2>
       </div>
 
-      <TotalPrice total={ total } />
+      <div className="container-shop-card">
+        <div className="container-products-checkout">
+          <div className="bar-title-shop-card">
+            <div className="index-item-shop-card-title">Item</div>
+            <div className="name-item-shop-card-title">Descrição</div>
+            <div className="qnt-item-shop-card-title">Quantidade</div>
+            <div className="value-item-shop-card-title">Valor Unitário</div>
+            <div className="value-total-item-shop-card-title">Sub-total</div>
+            <div className="btn-remove-item-shop-card-title">Remover item</div>
+          </div>
+          {
+            shop.map((product, i) => (
+              <ShopCard item={ product } i={ i } key={ `${i}${product.id}` } />
+            ))
+          }
+        </div>
+        <div className="container-total-price">
+          <TotalPrice total={ total } className="div-total-price" />
+        </div>
+      </div>
 
-      <h2>Detalhes e Endereço da entrega</h2>
+      <div className="title-checkout">
+        <h2>Detalhes e Endereço da entrega</h2>
+      </div>
 
-      <form>
+      <form className="container-form-checkout">
         <label htmlFor="seller">
           <select
             name="seller"
