@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
+import '../styles/components/TotalPrice.css';
 
 function TotalPrice({ total }) {
   const { pathname } = useLocation();

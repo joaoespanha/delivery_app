@@ -1,0 +1,37 @@
+.container-shop-card {
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  min-height: 400px;
+  padding: 20px;
+}
+
+.bar-title-shop-card {
+  display: flex;
+  font-size: 16px;
+  text-align: center;
+}
+
+.index-item-shop-card-title {
+  width: 70px;
+}
+
+.name-item-shop-card-title {
+  text-align: left;
+  width: 500px;
+}
+
+.qnt-item-shop-card-title {
+  width: 100px;
+}
+
+.value-item-shop-card-title {
+  width: 100px;
+}
+
+.value-total-item-shop-card-title {
+  width: 100px;
+}
+
+.btn-remove-item-shop-card-title {
+  width: 100px;
+}

@@ -6,6 +6,7 @@ import customerContext from '../context/CustomerContext';
 import CustomerNavBar from '../components/CustomerNavBar';
 import ShopCard from '../components/ShopCard';
 import TotalPrice from '../components/TotalPrice';
+import '../styles/pages/Checkout.css';
 
 function Checkout() {
   const { shop, setShop } = useContext(customerContext);
@@ -61,9 +62,17 @@ function Checkout() {
     <main>
       <CustomerNavBar />
 
-      <span>Finalizar pedido</span>
+      <h2 className="checkout-title">Finalizar pedido</h2>
 
-      <div>
+      <div className="container-shop-card">
+        <div className="bar-title-shop-card">
+          <div className="index-item-shop-card-title">Item</div>
+          <div className="name-item-shop-card-title">Descrição</div>
+          <div className="qnt-item-shop-card-title">Quantidade</div>
+          <div className="value-item-shop-card-title">Valor Unitário</div>
+          <div className="value-total-item-shop-card-title">Sub-total</div>
+          <div className="btn-remove-item-shop-card-title">Remover item</div>
+        </div>
         {
           shop.map((product, i) => (
             <ShopCard item={ product } i={ i } key={ `${i}${product.id}` } />
@@ -73,7 +82,7 @@ function Checkout() {
 
       <TotalPrice total={ total } />
 
-      <span>Detalhes e Endereço da entrega</span>
+      <h2>Detalhes e Endereço da entrega</h2>
 
       <form>
         <label htmlFor="seller">

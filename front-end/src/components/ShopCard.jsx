@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import customerContext from '../context/CustomerContext';
+import '../styles/components/ShopCard.css';
 
 function ShopCard({ item, i }) {
   const { shop, setShop } = useContext(customerContext);
@@ -40,40 +41,41 @@ function ShopCard({ item, i }) {
   };
 
   return (
-    <div>
-      <span data-testid={ dataTestNumber }>
+    <div className="div-shop-card">
+      <div className="index-item-shop-card" data-testid={ dataTestNumber }>
         {
           i + 1
         }
-      </span>
+      </div>
 
-      <span data-testid={ dataTestName }>
+      <div className="name-item-shop-card" data-testid={ dataTestName }>
         {
           item.name
         }
-      </span>
+      </div>
 
-      <span data-testid={ dataTestQuantity }>
+      <div className="qnt-item-shop-card" data-testid={ dataTestQuantity }>
         {
           item.quantity
         }
-      </span>
+      </div>
 
-      <span data-testid={ dataTestPrice }>
+      <div className="value-item-shop-card" data-testid={ dataTestPrice }>
         {
           item.price.replace(/\./ig, ',')
         }
-      </span>
+      </div>
 
-      <span data-testid={ dataTestSubTotal }>
+      <div className="value-total-item-shop-card" data-testid={ dataTestSubTotal }>
         {
           (Number(item.price) * Number(item.quantity)).toFixed(2).replace(/\./ig, ',')
         }
-      </span>
+      </div>
 
       {
         checkCheckoutPath && (
           <button
+            className="btn-remove-item-shop-card"
             type="button"
             data-testid={ `customer_checkout__element-order-table-remove-${i}` }
             onClick={ remove }
