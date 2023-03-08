@@ -68,6 +68,30 @@ function DetailsLabel({ sale }) {
           </button>
         )
       }
+
+      {
+        !checkPath && (
+          <div>
+            <button
+              type="button"
+              data-testid="seller_order_details__button-preparing-check"
+              onClick={ () => changeStatus('Preparando') }
+              disabled={ deliveryStatus !== 'Pendente' }
+            >
+              Preparar Pedido
+            </button>
+
+            <button
+              type="button"
+              data-testid="seller_order_details__button-dispatch-check"
+              onClick={ () => changeStatus('Em Trânsito') }
+              disabled={ deliveryStatus !== 'Preparando' }
+            >
+              Saiu para entrega
+            </button>
+          </div>
+        )
+      }
     </div>
   );
 }
