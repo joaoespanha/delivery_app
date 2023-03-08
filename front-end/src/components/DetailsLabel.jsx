@@ -62,7 +62,7 @@ function DetailsLabel({ sale }) {
             type="button"
             data-testid="customer_order_details__button-delivery-check"
             onClick={ () => changeStatus('Entregue') }
-            disabled={ deliveryStatus === 'Pendente' }
+            disabled={ deliveryStatus !== 'Em Trânsito' }
           >
             Marcar como entregue
           </button>
