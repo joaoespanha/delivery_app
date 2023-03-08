@@ -54,7 +54,7 @@ function DetailsLabel({ sale }) {
         { sale.saleDate.slice(0, DATE_SIZE).split('-').reverse().join('/') }
       </span>
 
-      <span data-testid={ dataTestStatus }>{ sale.status }</span>
+      <span data-testid={ dataTestStatus }>{ deliveryStatus }</span>
 
       {
         checkPath && (
