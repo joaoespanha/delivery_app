@@ -7,14 +7,15 @@ function TotalPrice({ total }) {
 
   const checkCheckoutPath = pathname.split('/').includes('checkout');
   const checkCustomerPath = pathname.split('/').includes('customer');
+  const checkSellerPath = pathname.split('/').includes('seller');
 
-  let dataTest = 'seller_order_details__element-order-total-price';
+  let dataTest = 'customer_checkout__element-order-total-price';
 
-  if (checkCheckoutPath) {
-    dataTest = 'customer_checkout__element-order-total-price';
+  if (checkSellerPath) {
+    dataTest = 'seller_order_details__element-order-total-price';
   }
 
-  if (checkCustomerPath) {
+  if (checkCustomerPath && !checkCheckoutPath) {
     dataTest = 'customer_order_details__element-order-total-price';
   }
 

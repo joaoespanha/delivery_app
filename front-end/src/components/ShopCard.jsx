@@ -8,24 +8,25 @@ function ShopCard({ item, i }) {
 
   const { pathname } = useLocation();
 
+  const checkSellerPath = pathname.split('/').includes('seller');
   const checkCheckoutPath = pathname.split('/').includes('checkout');
   const checkCustomerPath = pathname.split('/').includes('customer');
 
-  let dataTestNumber = `seller_order_details__element-order-table-item-number-${i}`;
-  let dataTestName = `seller_order_details__element-order-table-name-${i}`;
-  let dataTestQuantity = `seller_order_details__element-order-table-quantity-${i}`;
-  let dataTestPrice = `seller_order_details__element-order-table-unit-price-${i}`;
-  let dataTestSubTotal = `seller_order_details__element-order-table-sub-total-${i}`;
+  let dataTestNumber = `customer_checkout__element-order-table-item-number-${i}`;
+  let dataTestName = `customer_checkout__element-order-table-name-${i}`;
+  let dataTestQuantity = `customer_checkout__element-order-table-quantity-${i}`;
+  let dataTestPrice = `customer_checkout__element-order-table-unit-price-${i}`;
+  let dataTestSubTotal = `customer_checkout__element-order-table-sub-total-${i}`;
 
-  if (checkCheckoutPath) {
-    dataTestNumber = `customer_checkout__element-order-table-item-number-${i}`;
-    dataTestName = `customer_checkout__element-order-table-name-${i}`;
-    dataTestQuantity = `customer_checkout__element-order-table-quantity-${i}`;
-    dataTestPrice = `customer_checkout__element-order-table-unit-price-${i}`;
-    dataTestSubTotal = `customer_checkout__element-order-table-sub-total-${i}`;
+  if (checkSellerPath) {
+    dataTestNumber = `seller_order_details__element-order-table-item-number-${i}`;
+    dataTestName = `seller_order_details__element-order-table-name-${i}`;
+    dataTestQuantity = `seller_order_details__element-order-table-quantity-${i}`;
+    dataTestPrice = `seller_order_details__element-order-table-unit-price-${i}`;
+    dataTestSubTotal = `seller_order_details__element-order-table-sub-total-${i}`;
   }
 
-  if (checkCustomerPath) {
+  if (checkCustomerPath && !checkCheckoutPath) {
     dataTestNumber = `customer_order_details__element-order-table-item-number-${i}`;
     dataTestName = `customer_order_details__element-order-table-name-${i}`;
     dataTestQuantity = `customer_order_details__element-order-table-quantity-${i}`;
