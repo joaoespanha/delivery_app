@@ -36,13 +36,15 @@ function Checkout() {
   });
 
   const buy = async () => {
+    const date = new Date(Date.now()).toISOString();
+
     const response = await post('sales', {
       userId,
       sellerId: seller,
       totalPrice: total,
       deliveryAddress: address,
       deliveryNumber: number,
-      saleDate: new Date(),
+      saleDate: date,
       status: 'Pendente',
       products: shop.map(({ id: productId, quantity }) => ({ id: productId, quantity })),
     }, {
