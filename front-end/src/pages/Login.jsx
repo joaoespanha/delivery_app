@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { post, get } from '../utils/api';
+import { post } from '../utils/api';
 import { setLocalStorage, getLocalStorage } from '../utils/storage';
 import '../styles/pages/LoginRegister.css';
 import Logotipo from '../assets/images/logotipo1.svg';
