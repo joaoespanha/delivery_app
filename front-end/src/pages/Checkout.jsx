@@ -91,52 +91,60 @@ function Checkout() {
       </div>
 
       <form className="container-form-checkout">
-        <label htmlFor="seller">
-          <select
-            name="seller"
-            id="seller"
-            data-testid="customer_checkout__select-seller"
-            value={ seller }
-            onChange={ ({ target }) => setSeller(target.value) }
-          >
-            {
-              sellers
-                .map((sell, i) => (
-                  <option key={ `${i}-${sell.name}` } value={ sell.id }>
-                    { sell.name }
-                  </option>))
-            }
-          </select>
-        </label>
+        <div className="input-form-checkout">
+          <label htmlFor="seller">
+            <select
+              className="select-seller-checkout item-form-checkout"
+              name="seller"
+              id="seller"
+              data-testid="customer_checkout__select-seller"
+              value={ seller }
+              onChange={ ({ target }) => setSeller(target.value) }
+            >
+              {
+                sellers
+                  .map((sell, i) => (
+                    <option key={ `${i}-${sell.name}` } value={ sell.id }>
+                      { sell.name }
+                    </option>))
+              }
+            </select>
+          </label>
 
-        <label htmlFor="address">
-          <input
-            type="text"
-            name="address"
-            id="address"
-            value={ address }
-            data-testid="customer_checkout__input-address"
-            onChange={ ({ target }) => setAddress(target.value) }
-          />
-        </label>
+          <label htmlFor="address">
+            <input
+              className="input-address-checkout item-form-checkout"
+              type="text"
+              name="address"
+              id="address"
+              placeholder='Endereço "Rua / Av."'
+              value={ address }
+              data-testid="customer_checkout__input-address"
+              onChange={ ({ target }) => setAddress(target.value) }
+            />
+          </label>
 
-        <label htmlFor="number">
-          <input
-            type="text"
-            name="number"
-            id="number"
-            value={ number }
-            data-testid="customer_checkout__input-address-number"
-            onChange={ ({ target }) => setNumber(target.value.toString()) }
-          />
-        </label>
+          <label htmlFor="number">
+            <input
+              className="input-number-checkout item-form-checkout"
+              type="text"
+              name="number"
+              id="number"
+              placeholder="Número"
+              value={ number }
+              data-testid="customer_checkout__input-address-number"
+              onChange={ ({ target }) => setNumber(target.value.toString()) }
+            />
+          </label>
+        </div>
 
         <button
           type="button"
           data-testid="customer_checkout__button-submit-order"
           onClick={ buy }
+          className="btn-submit-checkout"
         >
-          Finalizar
+          Finalizar Pedido
         </button>
       </form>
     </main>
