@@ -21,11 +21,14 @@ function TotalPrice({ total }) {
   }
 
   return (
-    <span data-testid={ dataTest }>
+    <div
+      className="div-total-price"
+      data-testid={ dataTest }
+    >
       {
         total.replace(/\./ig, ',')
       }
-    </span>
+    </div>
   );
 }
 
