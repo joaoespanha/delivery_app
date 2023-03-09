@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import customerContext from '../context/CustomerContext';
 import '../styles/components/ShopCard.css';
+import Delete from '../assets/images/delete.svg';
 
 function ShopCard({ item, i }) {
   const { shop, setShop } = useContext(customerContext);
@@ -85,7 +86,9 @@ function ShopCard({ item, i }) {
             data-testid={ `customer_checkout__element-order-table-remove-${i}` }
             onClick={ remove }
           >
-            <span className="span-btn-shop-card"> ❌</span>
+            <span className="span-btn-shop-card">
+              <img src={ Delete } alt="botão deletar" />
+            </span>
           </button>
         )
       }
