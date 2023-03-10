@@ -1,10 +1,27 @@
 import React from 'react';
+import { post } from '../utils/api';
+import usersContext from '../context/UsersContext';
 
 function UserRegisterForm() {
-  const [name, setName] = useState(2);
+  const { users, setUsers } = useContext(usersContext);
+  const [name, setName] = useState();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [role, setRole] = useState('seller');
 
+  const possibleRoles = ['seller', 'customer', 'administrator'];
+
+  const { token } = getLocalStorage('user');
+
+  const registerUser = async () => {
+    const userToBeCreated = { name, email, password, role };
+    const createdUser = await post('user', userToBeCreated, {
+      headers: {
+        Authorization: token,
+      },
+    });
+    setUsers([...users, createdUser]);
+  };
   return (
     <form>
       <label htmlFor="name">
@@ -37,6 +54,34 @@ function UserRegisterForm() {
           onChange={ ({ target }) => setPassword(target.value) }
         />
       </label>
+
+      <label htmlFor="role">
+        <select
+          name="role"
+          id="role"
+          data-testid="customer_checkout__select-seller"
+          value={ role }
+          onChange={ ({ target }) => setRole(target.value) }
+        >
+          {
+            possibleRoles
+              .map((rolePos, i) => (
+                <option key={ `${i}-${rolePos}` } value={ rolePos }>
+                  { rolePos }
+                </option>))
+          }
+        </select>
+      </label>
+      <div className="button-alter-qnt">
+        <button
+          className="button-modified-qnt button-down-qnt"
+          type="button"
+          onClick={ registerUser }
+          // data-testid={ `customer_Users__button-card-rm-item-${id}` }
+        >
+          Excluir
+        </button>
+      </div>
     </form>
   );
 }

@@ -1,14 +1,13 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useEffect, useContext } from 'react';
 import { get } from '../utils/api';
 import { getLocalStorage } from '../utils/storage';
 import CustomerNavBar from '../components/CustomerNavBar';
 import usersContext from '../context/UsersContext';
 import UserCard from '../components/UserCard';
+import UserRegisterForm from '../components/UserRegisterForm';
 // import '../styles/pages/CustomerUsers.css';
 
 function ManagerControl() {
-  const history = useHistory();
   const { users, setUsers } = useContext(usersContext);
 
   const { token } = getLocalStorage('user');
@@ -20,8 +19,8 @@ function ManagerControl() {
       },
     });
 
-    const users = response.data;
-    setUsers([...users]);
+    const updatedUsers = response.data;
+    setUsers([...updatedUsers]);
   };
 
   useEffect(() => {
@@ -31,7 +30,7 @@ function ManagerControl() {
   return (
     <main>
       <CustomerNavBar />
-      {/* <UserRegisterForm /> */}
+      <UserRegisterForm />
       <div className="container-product-card">
         <div className="grid-product-card">
           {
