@@ -8,7 +8,7 @@ import usersContext from '../context/UsersContext';
 function UserCard({ user }) {
   const { users, setUsers } = useContext(usersContext);
 
-  const { id, name, email, role } = user;
+  const { id, name, email, role, index } = user;
 
   const { token } = getLocalStorage('user');
 
@@ -27,9 +27,17 @@ function UserCard({ user }) {
   return (
     <div className="User-card-container">
       <div className="container-infos-User-card">
+
         <span
           className="title-User-card"
-          data-testid={ `customer_Users__element-card-title-${id}` }
+          data-testid={ `admin_manage__element-user-table-item-number-${index}` }
+        >
+          { `${index + 1}` }
+        </span>
+
+        <span
+          className="title-User-card"
+          data-testid={ `admin_manage__element-user-table-name-${index}` }
         >
           { name }
         </span>
@@ -37,7 +45,7 @@ function UserCard({ user }) {
         <div className="container-children-infos-User-card">
           <span
             className="price-User-card"
-            data-testid={ `customer_Users__element-card-price-${id}` }
+            data-testid={ `admin_manage__element-user-table-email-${index}` }
 
           >
             { email }
@@ -45,7 +53,7 @@ function UserCard({ user }) {
 
           <span
             className="price-User-card"
-            data-testid={ `customer_Users__element-card-price-${id}` }
+            data-testid={ `admin_manage__element-user-table-role-${index}` }
 
           >
             { role }
@@ -56,7 +64,7 @@ function UserCard({ user }) {
               className="button-modified-qnt button-down-qnt"
               type="button"
               onClick={ () => deleteUser() }
-              data-testid={ `customer_Users__button-card-rm-item-${id}` }
+              data-testid={ `admin_manage__element-user-table-remove-${index}` }
             >
               Excluir
             </button>
@@ -69,6 +77,7 @@ function UserCard({ user }) {
 
 UserCard.propTypes = {
   user: PropTypes.shape({
+    index: PropTypes.number,
     id: PropTypes.number,
     name: PropTypes.string,
     role: PropTypes.string,

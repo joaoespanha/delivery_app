@@ -34,8 +34,8 @@ function ManagerControl() {
       <div className="container-product-card">
         <div className="grid-product-card">
           {
-            users.map((user, i) => (
-              <UserCard user={ user } key={ `${user.email}-${i}` } />
+            users.map((user, index) => (
+              <UserCard user={ { ...user, index } } key={ `${user.email}-${index}` } />
             ))
           }
         </div>
