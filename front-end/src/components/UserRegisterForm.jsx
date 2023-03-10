@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { post } from '../utils/api';
 import usersContext from '../context/UsersContext';
+import { getLocalStorage } from '../utils/storage';
 
 function UserRegisterForm() {
   const { users, setUsers } = useContext(usersContext);
-  const [name, setName] = useState();
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('seller');
@@ -15,7 +16,7 @@ function UserRegisterForm() {
 
   const registerUser = async () => {
     const userToBeCreated = { name, email, password, role };
-    const createdUser = await post('user', userToBeCreated, {
+    const createdUser = await post('register', userToBeCreated, {
       headers: {
         Authorization: token,
       },
@@ -79,7 +80,7 @@ function UserRegisterForm() {
           onClick={ registerUser }
           // data-testid={ `customer_Users__button-card-rm-item-${id}` }
         >
-          Excluir
+          create
         </button>
       </div>
     </form>

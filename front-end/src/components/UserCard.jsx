@@ -69,10 +69,10 @@ function UserCard({ user }) {
 
 UserCard.propTypes = {
   user: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    role: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
+    id: PropTypes.number,
+    name: PropTypes.string,
+    role: PropTypes.string,
+    email: PropTypes.string,
   }).isRequired,
 };
 
