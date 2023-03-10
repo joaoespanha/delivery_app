@@ -1,0 +1,29 @@
+.container-details-label {
+  background-color: var(--white-app);
+  display: flex;
+  font-size: 20px;
+  height: 30px;
+  justify-content: space-between;
+}
+
+.date-details-label {
+  background-color: white;
+  border-radius: 10px;
+  padding: 0 5px;
+}
+
+.number-pedido, .date-details-label {
+  font-weight: 600;
+}
+
+.button-delivery-check {
+  background-color: var(--yellow-app);
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: var(--black-app);
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0 5px;
+  text-transform: uppercase;
+}

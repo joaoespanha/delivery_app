@@ -1,0 +1,10 @@
+.section-customer-order-details {
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 400px;
+  padding: 20px;
+  position: relative;
+}

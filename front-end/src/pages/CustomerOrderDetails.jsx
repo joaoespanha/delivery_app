@@ -6,6 +6,7 @@ import CustomerNavBar from '../components/CustomerNavBar';
 import DetailsLabel from '../components/DetailsLabel';
 import ShopCard from '../components/ShopCard';
 import TotalPrice from '../components/TotalPrice';
+import '../styles/pages/CustomerOrderDetails.css';
 
 function CustomerOrderDetails() {
   const [sale, setSale] = useState({});
@@ -46,16 +47,27 @@ function CustomerOrderDetails() {
 
       {
         sale.id && (
-          <section>
+          <section className="section-customer-order-details">
+            <h2>Detalhe do Pedido</h2>
             <DetailsLabel sale={ sale } />
+            <div className="container-products-checkout">
+              <div className="bar-title-shop-card">
+                <div className="index-item-shop-card-title">Item</div>
+                <div className="name-item-shop-card-title">Descrição</div>
+                <div className="qnt-item-shop-card-title">Quantidade</div>
+                <div className="value-item-shop-card-title">Valor Unitário</div>
+                <div className="value-total-item-shop-card-title">Sub-total</div>
+              </div>
 
-            {
-              pŕoducts.map((product, i) => (
-                <ShopCard item={ product } i={ i } key={ `${i}${product.id}` } />
-              ))
-            }
-
-            <TotalPrice total={ sale.totalPrice } />
+              {
+                pŕoducts.map((product, i) => (
+                  <ShopCard item={ product } i={ i } key={ `${i}${product.id}` } />
+                ))
+              }
+            </div>
+            <div className="container-total-price">
+              <TotalPrice total={ sale.totalPrice } />
+            </div>
           </section>
         )
       }

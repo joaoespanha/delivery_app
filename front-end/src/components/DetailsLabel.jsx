@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
 import { patch } from '../utils/api';
 import { getLocalStorage } from '../utils/storage';
+import '../styles/components/DetailsLabel.css';
 
 const DATE_SIZE = 10;
 
@@ -37,20 +38,26 @@ function DetailsLabel({ sale }) {
   };
 
   return (
-    <div>
-      <span data-testid={ dataTestSaleID }>{ sale.id }</span>
+    <div className="container-details-label">
+      <span data-testid={ dataTestSaleID } className="number-pedido">
+        Pedido:
+        {' '}
+        { sale.id }
+      </span>
 
       {
         checkPath && (
           <span
             data-testid="customer_order_details__element-order-details-label-seller-name"
           >
+            P.Vend:
+            {' '}
             { sale.seller.name }
           </span>
         )
       }
 
-      <span data-testid={ dataTestDate }>
+      <span data-testid={ dataTestDate } className="date-details-label">
         { sale.saleDate.slice(0, DATE_SIZE).split('-').reverse().join('/') }
       </span>
 
@@ -59,6 +66,7 @@ function DetailsLabel({ sale }) {
       {
         checkPath && (
           <button
+            className="button-delivery-check"
             type="button"
             data-testid="customer_order_details__button-delivery-check"
             onClick={ () => changeStatus('Entregue') }

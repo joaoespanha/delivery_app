@@ -26,7 +26,7 @@ function CustomerOrders() {
     <main>
       <CustomerNavBar />
 
-      <section>
+      <section className="section-customer-orders">
         {
           orders.map((order, i) => (
             <Order order={ order } key={ `${order.id}-${i}` } />

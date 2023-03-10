@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import '../styles/components/Order.css';
 
 const DATE_SIZE = 10;
 
@@ -36,7 +37,11 @@ function Order({ order }) {
     : `customer_orders__element-card-price-${id}`;
 
   return (
-    <div onClick={ takesToDetails } aria-hidden="true">
+    <div
+      onClick={ takesToDetails }
+      aria-hidden="true"
+      className="container-order"
+    >
       <span data-testid={ testIdID }>
         {
           id
