@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
+import '../styles/components/TotalPrice.css';
 
 function TotalPrice({ total }) {
   const { pathname } = useLocation();
@@ -20,11 +21,14 @@ function TotalPrice({ total }) {
   }
 
   return (
-    <span data-testid={ dataTest }>
+    <div
+      className="div-total-price"
+      data-testid={ dataTest }
+    >
       {
         total.replace(/\./ig, ',')
       }
-    </span>
+    </div>
   );
 }
 

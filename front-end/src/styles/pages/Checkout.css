@@ -1,0 +1,106 @@
+.title-checkout {
+  text-align: start;
+  width: 1060px;
+}
+
+.container-shop-card {
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 400px;
+  padding: 20px;
+  position: relative;
+  width: 1020px;
+}
+
+.bar-title-shop-card {
+  display: flex;
+  font-size: 16px;
+  text-align: center;
+}
+
+.index-item-shop-card-title {
+  width: 70px;
+}
+
+.name-item-shop-card-title {
+  padding-left: 10px;
+  width: 460px;
+}
+
+.qnt-item-shop-card-title {
+  width: 110px;
+}
+
+.value-item-shop-card-title {
+  width: 110px;
+}
+
+.value-total-item-shop-card-title {
+  width: 110px;
+}
+
+.btn-remove-item-shop-card-title {
+  width: 110px;
+}
+
+.container-total-price {
+  display: flex;
+  justify-content: end;
+}
+
+.container-form-checkout {
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 1020px;
+}
+
+.input-form-checkout {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  width: 1020px;
+}
+
+.select-seller-checkout {
+  width: 200px;
+}
+
+.input-address-checkout {
+  width: 500px;
+}
+
+.input-number-checkout {
+  width: 200px;
+}
+
+.item-form-checkout {
+  border: 1px solid var(--black-app);
+  border-radius: 10px;
+  box-sizing: border-box;
+  height: 50px;
+  padding: 5px 0 5px 20px;
+}
+
+.btn-submit-checkout {
+  background-color: var(--yellow-app);
+  border: none;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: var(--black-app);
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 600;
+  height: 60px;
+  margin: 10px;
+  padding: 5px;
+  text-transform: uppercase;
+  width: 40%;
+}
