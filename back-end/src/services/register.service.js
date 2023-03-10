@@ -9,6 +9,10 @@ const register = async (user) => {
     const encryptedPassword = md5(user.password);
     const userCrypted = { ...user, password: encryptedPassword };
     userCreated = await User.create({ ...userCrypted, role: 'customer' });
+  } else {
+    const encryptedPassword = md5(user.password);
+    const userCrypted = { ...user, password: encryptedPassword };
+    userCreated = await User.create({ ...userCrypted });
   }
   const { email, role, name, id } = userCreated.dataValues;
   const token = await createToken(email, role);
