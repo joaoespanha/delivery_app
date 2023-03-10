@@ -10,8 +10,14 @@ const getAllByRole = async (req, res) => {
   const { message, status } = await userService.getAllByRole(roleToSearch);
   return res.status(status).json(message);
 };
+const deleteUser = async (req, res) => {
+  const { id } = req.params;
+  const { status, message } = await userService.deleteUser(Number(id));
+  return res.status(status).json(message);
+};
 
 module.exports = {
     getAllByRole,
     findAll,
+    deleteUser,
 };
