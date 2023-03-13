@@ -23,6 +23,8 @@
   color: var(--black-app);
   cursor: pointer;
   font-weight: 600;
+  height: 25px;
+  margin-right: 5px;
   padding: 0 5px;
   text-transform: uppercase;
 }

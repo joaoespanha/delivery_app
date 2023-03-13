@@ -4,6 +4,17 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   display: flex;
+  flex-direction: column;
+  height: 130px;
+  text-align: center;
+  width: 100%;
+}
+
+.container-customer-seller-order {
+  background-color: #eaf1ef;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
   font-size: 1.5em;
   font-weight: 600;
   height: 100px;
@@ -11,6 +22,7 @@
   text-align: center;
   width: 100%;
 }
+
 
 .div-id-order {
   align-items: center;
@@ -76,4 +88,12 @@
   content: 'R$';
   font-weight: 600;
   margin-right: 5px;
+}
+
+.adress-seller-orders {
+  align-items: center;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  text-align: center;
 }

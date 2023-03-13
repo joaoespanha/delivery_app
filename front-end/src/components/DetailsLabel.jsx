@@ -81,6 +81,7 @@ function DetailsLabel({ sale }) {
         !checkPath && (
           <div>
             <button
+              className="button-delivery-check"
               type="button"
               data-testid="seller_order_details__button-preparing-check"
               onClick={ () => changeStatus('Preparando') }
@@ -90,6 +91,7 @@ function DetailsLabel({ sale }) {
             </button>
 
             <button
+              className="button-delivery-check"
               type="button"
               data-testid="seller_order_details__button-dispatch-check"
               onClick={ () => changeStatus('Em Trânsito') }

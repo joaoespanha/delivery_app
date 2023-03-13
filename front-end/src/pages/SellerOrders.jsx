@@ -3,6 +3,7 @@ import { getLocalStorage } from '../utils/storage';
 import { get } from '../utils/api';
 import CustomerNavBar from '../components/CustomerNavBar';
 import Order from '../components/Order';
+import '../styles/pages/SellerOrders.css';
 
 function SellerOrders() {
   const [orders, setOrders] = useState([]);
@@ -23,10 +24,10 @@ function SellerOrders() {
   }, []);
 
   return (
-    <main>
+    <main className="main-seller-orders">
       <CustomerNavBar />
 
-      <section>
+      <section className="section-seller-orders">
         {
           orders.map((order, i) => (
             <Order order={ order } key={ `${order.id}-${i}` } />
