@@ -18,9 +18,16 @@
   border-radius: 10px;
   box-sizing: border-box;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin: 1px;
   width: 20%;
+}
+
+.div-id-order:before {
+  content: 'Pedido';
+  font-size: 20px;
+  font-weight: 300;
 }
 
 .div-status-order {
@@ -63,4 +70,10 @@
   height: 40%;
   justify-content: center;
   margin: 5px;
+}
+
+.span-total-price-order:before {
+  content: 'R$';
+  font-weight: 600;
+  margin-right: 5px;
 }
