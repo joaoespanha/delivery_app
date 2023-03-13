@@ -45,7 +45,31 @@ main {
 }
 
 
-@media ( max-width : 768px ) {
+@media ( max-width : 1200px ) {
+
+  .container-product-card {
+    width: 100%;
+  }
+
+  .grid-product-card {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+@media ( max-width : 850px ) {
+
+  .container-product-card {
+    width: 100%;
+  }
+
+  .grid-product-card {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media ( max-width : 600px ) {
 
   .container-product-card {
     width: 100%;
