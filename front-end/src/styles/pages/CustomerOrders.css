@@ -1,0 +1,13 @@
+.main-customer-orders {
+  background-color: var(--white-app);
+  height: 98vh;
+}
+
+.section-customer-orders {
+  display: grid;
+  gap: 50px;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px;
+  width: 80%;
+}
+

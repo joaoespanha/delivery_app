@@ -1,0 +1,79 @@
+.container-order {
+  background-color: #eaf1ef;
+  border: #b1c2be solid 1px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  font-size: 1.5em;
+  font-weight: 600;
+  height: 100px;
+  justify-content: space-between;
+  text-align: center;
+  width: 100%;
+}
+
+.div-id-order {
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1px;
+  width: 20%;
+}
+
+.div-id-order:before {
+  content: 'Pedido';
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.div-status-order {
+  align-items: center;
+  border-radius: 10px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+  width: 43%;
+
+}
+
+.div-date-value-order {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 5px;
+  width: 32%;
+}
+
+.span-date-order {
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  box-sizing: border-box;
+  display: flex;
+  height: 40%;
+  justify-content: center;
+  margin: 5px;
+}
+
+.span-total-price-order {
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  box-sizing: border-box;
+  display: flex;
+  height: 40%;
+  justify-content: center;
+  margin: 5px;
+}
+
+.span-total-price-order:before {
+  content: 'R$';
+  font-weight: 600;
+  margin-right: 5px;
+}

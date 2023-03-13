@@ -1,0 +1,40 @@
+.container-details-label {
+  background-color: var(--white-app);
+  display: flex;
+  font-size: 20px;
+  height: 30px;
+  justify-content: space-between;
+}
+
+.date-details-label {
+  background-color: white;
+  border-radius: 10px;
+  padding: 0 5px;
+}
+
+.number-pedido, .date-details-label {
+  font-weight: 600;
+}
+
+.button-delivery-check {
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: var(--black-app);
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0 5px;
+  text-transform: uppercase;
+}
+
+
+.button-delivery-check:enabled {
+  background-color: var(--yellow-app);
+  color: var(--black-app);
+}
+
+.button-delivery-check:disabled {
+  background-color: #e0e0e0;
+  color: #9e9e9e;
+  cursor: default;
+}
