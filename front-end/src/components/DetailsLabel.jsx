@@ -37,6 +37,29 @@ function DetailsLabel({ sale }) {
     setDeliveryStatus(status);
   };
 
+  const emTransito = 'Em Trânsito';
+  const entregue = 'Entregue';
+  const preparando = 'Preparando';
+  const pendente = 'Pendente';
+
+  let statusClass = '';
+  switch (deliveryStatus) {
+  case pendente:
+    statusClass = 'gray-back';
+    break;
+  case preparando:
+    statusClass = 'yellow-back';
+    break;
+  case emTransito:
+    statusClass = 'blue-back';
+    break;
+  case entregue:
+    statusClass = 'green-back';
+    break;
+  default:
+    statusClass = '';
+  }
+
   return (
     <div className="container-details-label">
       <span data-testid={ dataTestSaleID } className="number-pedido">
@@ -61,7 +84,13 @@ function DetailsLabel({ sale }) {
         { sale.saleDate.slice(0, DATE_SIZE).split('-').reverse().join('/') }
       </span>
 
-      <span data-testid={ dataTestStatus }>{ deliveryStatus }</span>
+      <span
+        data-testid={ dataTestStatus }
+        className={ `${statusClass}` }
+      >
+        { deliveryStatus }
+
+      </span>
 
       {
         checkPath && (
@@ -69,8 +98,8 @@ function DetailsLabel({ sale }) {
             className="button-delivery-check"
             type="button"
             data-testid="customer_order_details__button-delivery-check"
-            onClick={ () => changeStatus('Entregue') }
-            disabled={ deliveryStatus !== 'Em Trânsito' }
+            onClick={ () => changeStatus(entregue) }
+            disabled={ deliveryStatus !== emTransito }
           >
             Marcar como entregue
           </button>
@@ -81,19 +110,21 @@ function DetailsLabel({ sale }) {
         !checkPath && (
           <div>
             <button
+              className="button-delivery-check"
               type="button"
               data-testid="seller_order_details__button-preparing-check"
-              onClick={ () => changeStatus('Preparando') }
-              disabled={ deliveryStatus !== 'Pendente' }
+              onClick={ () => changeStatus(preparando) }
+              disabled={ deliveryStatus !== pendente }
             >
               Preparar Pedido
             </button>
 
             <button
+              className="button-delivery-check"
               type="button"
               data-testid="seller_order_details__button-dispatch-check"
-              onClick={ () => changeStatus('Em Trânsito') }
-              disabled={ deliveryStatus !== 'Preparando' }
+              onClick={ () => changeStatus(emTransito) }
+              disabled={ deliveryStatus !== preparando }
             >
               Saiu para entrega
             </button>

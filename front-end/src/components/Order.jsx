@@ -36,57 +36,79 @@ function Order({ order }) {
   const testIdPrice = checkIfIsSellerPath ? `seller_orders__element-card-price-${id}`
     : `customer_orders__element-card-price-${id}`;
 
+  let statusClass = '';
+  switch (status) {
+  case 'Pendente':
+    statusClass = 'gray-back';
+    break;
+  case 'Preparando':
+    statusClass = 'yellow-back';
+    break;
+  case 'Em Trânsito':
+    statusClass = 'blue-back';
+    break;
+  case 'Entregue':
+    statusClass = 'green-back';
+    break;
+  default:
+    statusClass = '';
+  }
+
   return (
     <div
       onClick={ takesToDetails }
       aria-hidden="true"
       className="container-order"
     >
-      <div className="div-id-order">
-        <span data-testid={ testIdID }>
-          {
-            id
-          }
-        </span>
-      </div>
-
-      <div className="div-status-order">
-        <span data-testid={ testIdStatus }>
-          {
-            status
-          }
-        </span>
-      </div>
-
-      <div className="div-date-value-order">
-        <span
-          data-testid={ testIdDate }
-          className="span-date-order"
-        >
-          {
-            saleDate.slice(0, DATE_SIZE).split('-').reverse().join('/')
-          }
-        </span>
-
-        <span
-          data-testid={ testIdPrice }
-          className="span-total-price-order"
-        >
-          {
-            totalPrice.replace(/\./ig, ',')
-          }
-        </span>
-      </div>
-
-      {
-        checkIfIsSellerPath && (
-          <span data-testid={ `seller_orders__element-card-address-${id}` }>
+      <div className="container-customer-seller-order">
+        <div className="div-id-order">
+          <span data-testid={ testIdID }>
             {
-              `$${deliveryAddress}, ${deliveryNumber}`
+              id
             }
           </span>
-        )
-      }
+        </div>
+
+        <div className={ `div-status-order ${statusClass}` }>
+          <span data-testid={ testIdStatus }>
+            {
+              status
+            }
+          </span>
+        </div>
+
+        <div className="div-date-value-order">
+          <span
+            data-testid={ testIdDate }
+            className="span-date-order"
+          >
+            {
+              saleDate.slice(0, DATE_SIZE).split('-').reverse().join('/')
+            }
+          </span>
+
+          <span
+            data-testid={ testIdPrice }
+            className="span-total-price-order"
+          >
+            {
+              totalPrice.replace(/\./ig, ',')
+            }
+          </span>
+        </div>
+      </div>
+
+      <div className="adress-seller-orders">
+        {
+          checkIfIsSellerPath && (
+            <span data-testid={ `seller_orders__element-card-address-${id}` }>
+              {
+                `${deliveryAddress}, ${deliveryNumber}`
+              }
+            </span>
+          )
+        }
+      </div>
     </div>
   );
 }
