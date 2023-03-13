@@ -97,3 +97,19 @@
   justify-content: center;
   text-align: center;
 }
+
+.yellow-back {
+  background-color: #f9e79f;
+}
+
+.gray-back {
+  background-color: #e0e0e0;
+}
+
+.blue-back {
+  background-color: #a9cce3;
+}
+
+.green-back {
+  background-color: #a3e4d7;
+}

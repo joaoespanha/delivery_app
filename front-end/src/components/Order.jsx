@@ -36,6 +36,24 @@ function Order({ order }) {
   const testIdPrice = checkIfIsSellerPath ? `seller_orders__element-card-price-${id}`
     : `customer_orders__element-card-price-${id}`;
 
+  let statusClass = '';
+  switch (status) {
+  case 'Pendente':
+    statusClass = 'gray-back';
+    break;
+  case 'Preparando':
+    statusClass = 'yellow-back';
+    break;
+  case 'Em Trânsito':
+    statusClass = 'blue-back';
+    break;
+  case 'Entregue':
+    statusClass = 'green-back';
+    break;
+  default:
+    statusClass = '';
+  }
+
   return (
     <div
       onClick={ takesToDetails }
@@ -51,7 +69,7 @@ function Order({ order }) {
           </span>
         </div>
 
-        <div className="div-status-order">
+        <div className={ `div-status-order ${statusClass}` }>
           <span data-testid={ testIdStatus }>
             {
               status
