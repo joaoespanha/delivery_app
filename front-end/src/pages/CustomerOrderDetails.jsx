@@ -51,7 +51,7 @@ function CustomerOrderDetails() {
             <h2>Detalhe do Pedido</h2>
             <DetailsLabel sale={ sale } />
             <div className="container-products-checkout">
-              <div className="bar-title-shop-card">
+              <div className="bar-title-shop-card bar-title-shop-card-details">
                 <div className="index-item-shop-card-title">Item</div>
                 <div className="name-item-shop-card-title">Descrição</div>
                 <div className="qnt-item-shop-card-title">Quantidade</div>

@@ -42,29 +42,41 @@ function Order({ order }) {
       aria-hidden="true"
       className="container-order"
     >
-      <span data-testid={ testIdID }>
-        {
-          id
-        }
-      </span>
+      <div className="div-id-order">
+        <span data-testid={ testIdID }>
+          {
+            id
+          }
+        </span>
+      </div>
 
-      <span data-testid={ testIdStatus }>
-        {
-          status
-        }
-      </span>
+      <div className="div-status-order">
+        <span data-testid={ testIdStatus }>
+          {
+            status
+          }
+        </span>
+      </div>
 
-      <span data-testid={ testIdDate }>
-        {
-          saleDate.slice(0, DATE_SIZE).split('-').reverse().join('/')
-        }
-      </span>
+      <div className="div-date-value-order">
+        <span
+          data-testid={ testIdDate }
+          className="span-date-order"
+        >
+          {
+            saleDate.slice(0, DATE_SIZE).split('-').reverse().join('/')
+          }
+        </span>
 
-      <span data-testid={ testIdPrice }>
-        {
-          totalPrice.replace(/\./ig, ',')
-        }
-      </span>
+        <span
+          data-testid={ testIdPrice }
+          className="span-total-price-order"
+        >
+          {
+            totalPrice.replace(/\./ig, ',')
+          }
+        </span>
+      </div>
 
       {
         checkIfIsSellerPath && (

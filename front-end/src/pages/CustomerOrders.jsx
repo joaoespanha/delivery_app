@@ -3,6 +3,7 @@ import { getLocalStorage } from '../utils/storage';
 import { get } from '../utils/api';
 import CustomerNavBar from '../components/CustomerNavBar';
 import Order from '../components/Order';
+import '../styles/pages/CustomerOrders.css';
 
 function CustomerOrders() {
   const [orders, setOrders] = useState([]);
@@ -23,7 +24,7 @@ function CustomerOrders() {
   }, []);
 
   return (
-    <main>
+    <main className="main-customer-orders">
       <CustomerNavBar />
 
       <section className="section-customer-orders">
