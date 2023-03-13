@@ -81,3 +81,29 @@
   text-align: center;
   width: 30px;
 }
+
+@media screen and ( max-width : 600px ) {
+
+  .product-card-container {
+    flex-direction: column;
+  }
+
+  .container-img-product-card {
+    height: 200px;
+  }
+
+  .container-infos-product-card {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and ( max-width : 400px ) {
+
+  .title-product-card {
+    font-size: 0.8rem;
+  }
+
+  .price-product-card {
+    font-size: 1rem;
+  }
+}

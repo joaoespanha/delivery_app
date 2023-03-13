@@ -43,3 +43,23 @@ main {
   content: 'R$';
   margin-right: 5px;
 }
+
+
+@media ( max-width : 768px ) {
+
+  .container-product-card {
+    width: 100%;
+  }
+
+  .grid-product-card {
+    grid-template-columns: repeat(1, 1fr);
+    margin: 50px 20px;
+  }
+
+  .button-cart-total {
+    font-size: 1.5rem;
+    height: 60px;
+    right: 5%;
+    width: 200px;
+  }
+}
