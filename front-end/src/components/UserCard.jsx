@@ -2,8 +2,9 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { destroy } from '../utils/api';
 import { getLocalStorage } from '../utils/storage';
-// import '../styles/components/UserCard.css';
+import '../styles/components/UserCard.css';
 import usersContext from '../context/UsersContext';
+import Delete from '../assets/images/delete.svg';
 
 function UserCard({ user }) {
   const { users, setUsers } = useContext(usersContext);
@@ -25,51 +26,48 @@ function UserCard({ user }) {
   };
 
   return (
-    <div className="User-card-container">
-      <div className="container-infos-User-card">
+    <div className="container-infos-user-card">
 
-        <span
-          className="title-User-card"
-          data-testid={ `admin_manage__element-user-table-item-number-${index}` }
+      <div
+        className="index-user-card"
+        data-testid={ `admin_manage__element-user-table-item-number-${index}` }
+      >
+        { `${index + 1}` }
+      </div>
+
+      <div
+        className="name-user-card"
+        data-testid={ `admin_manage__element-user-table-name-${index}` }
+      >
+        { name }
+      </div>
+      <div
+        className="email-user-card"
+        data-testid={ `admin_manage__element-user-table-email-${index}` }
+
+      >
+        { email }
+      </div>
+
+      <div
+        className="role-user-card"
+        data-testid={ `admin_manage__element-user-table-role-${index}` }
+
+      >
+        { role }
+      </div>
+
+      <div className="button-alter-qnt">
+        <button
+          className="btn-remove-user-card"
+          type="button"
+          onClick={ () => deleteUser() }
+          data-testid={ `admin_manage__element-user-table-remove-${index}` }
         >
-          { `${index + 1}` }
-        </span>
-
-        <span
-          className="title-User-card"
-          data-testid={ `admin_manage__element-user-table-name-${index}` }
-        >
-          { name }
-        </span>
-
-        <div className="container-children-infos-User-card">
-          <span
-            className="price-User-card"
-            data-testid={ `admin_manage__element-user-table-email-${index}` }
-
-          >
-            { email }
+          <span className="span-btn-shop-card">
+            <img src={ Delete } alt="botão deletar" />
           </span>
-
-          <span
-            className="price-User-card"
-            data-testid={ `admin_manage__element-user-table-role-${index}` }
-
-          >
-            { role }
-          </span>
-
-          <div className="button-alter-qnt">
-            <button
-              className="button-modified-qnt button-down-qnt"
-              type="button"
-              onClick={ () => deleteUser() }
-              data-testid={ `admin_manage__element-user-table-remove-${index}` }
-            >
-              Excluir
-            </button>
-          </div>
-        </div>
+        </button>
       </div>
     </div>
   );
