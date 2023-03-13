@@ -62,7 +62,7 @@ function DetailsLabel({ sale }) {
 
   return (
     <div className="container-details-label">
-      <span data-testid={ dataTestSaleID } className="number-pedido">
+      <span data-testid={ dataTestSaleID } className="number-pedido span-details-mobile">
         Pedido:
         {' '}
         { sale.id }
@@ -72,6 +72,7 @@ function DetailsLabel({ sale }) {
         checkPath && (
           <span
             data-testid="customer_order_details__element-order-details-label-seller-name"
+            className="span-details-mobile"
           >
             P.Vend:
             {' '}
@@ -80,13 +81,17 @@ function DetailsLabel({ sale }) {
         )
       }
 
-      <span data-testid={ dataTestDate } className="date-details-label">
+      <span
+        data-testid={ dataTestDate }
+        className="date-details-label
+       span-details-mobile"
+      >
         { sale.saleDate.slice(0, DATE_SIZE).split('-').reverse().join('/') }
       </span>
 
       <span
         data-testid={ dataTestStatus }
-        className={ `${statusClass}` }
+        className={ `${statusClass} span-details-mobile` }
       >
         { deliveryStatus }
 
@@ -95,7 +100,7 @@ function DetailsLabel({ sale }) {
       {
         checkPath && (
           <button
-            className="button-delivery-check"
+            className="button-delivery-check span-details-mobile"
             type="button"
             data-testid="customer_order_details__button-delivery-check"
             onClick={ () => changeStatus(entregue) }

@@ -40,3 +40,49 @@
   color: #9e9e9e;
   cursor: default;
 }
+
+
+/* Tamanho da tela menor que 768px */
+
+@media screen and ( max-width : 767px ) {
+
+  /*  .container-details-label {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+    justify-content: space-around;
+  }
+
+  .span-details-mobile {
+    align-items: center;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+
+  } */
+
+  .container-details-label {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    justify-content: space-around;
+  }
+
+  .span-details-mobile {
+    align-items: center;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    margin: 5px 0;
+    width: 45%;
+  }
+}
+
+/* Tamanho da tela menor que 576px */
+
+@media screen and ( max-width : 575px ) {
+
+  .container-details-label {
+    font-size: 16px;
+  }
+}
