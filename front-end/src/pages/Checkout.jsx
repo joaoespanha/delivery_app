@@ -92,7 +92,10 @@ function Checkout() {
 
       <form className="container-form-checkout">
         <div className="input-form-checkout">
-          <label htmlFor="seller">
+          <label
+            htmlFor="seller"
+            className="item-label-checkout"
+          >
             <select
               className="select-seller-checkout item-form-checkout"
               name="seller"
@@ -111,7 +114,10 @@ function Checkout() {
             </select>
           </label>
 
-          <label htmlFor="address">
+          <label
+            htmlFor="address"
+            className="item-label-checkout"
+          >
             <input
               className="input-address-checkout item-form-checkout"
               type="text"
@@ -124,7 +130,10 @@ function Checkout() {
             />
           </label>
 
-          <label htmlFor="number">
+          <label
+            htmlFor="number"
+            className="item-label-checkout"
+          >
             <input
               className="input-number-checkout item-form-checkout"
               type="text"

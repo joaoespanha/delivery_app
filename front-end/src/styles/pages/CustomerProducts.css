@@ -3,7 +3,7 @@ main {
   background-color: var(--white-app);
   display: flex;
   flex-direction: column;
-  height: 98vh;
+  height: auto;
   width: 100%;
 }
 
