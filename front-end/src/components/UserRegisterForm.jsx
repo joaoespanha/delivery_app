@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { post } from '../utils/api';
 import usersContext from '../context/UsersContext';
 import { getLocalStorage } from '../utils/storage';
+import '../styles/components/UserRegisterForm.css';
 
 function UserRegisterForm() {
   const { users, setUsers } = useContext(usersContext);
@@ -44,12 +45,17 @@ function UserRegisterForm() {
   };
   return (
     <div>
-      <form>
+      <div className="title-users">
+        <h2>Cadastrar novo usuário</h2>
+      </div>
+      <form className="container-form-users">
         <label htmlFor="name">
           <input
+            className="input-form-users"
             type="text"
             name="name"
             id="name"
+            placeholder="Nome Completo"
             value={ name }
             data-testid="admin_manage__input-name"
             onChange={ ({ target }) => setName(target.value) }
@@ -57,9 +63,11 @@ function UserRegisterForm() {
         </label>
         <label htmlFor="email">
           <input
-            type="text"
+            className="input-form-users"
+            type="email"
             name="email"
             id="email"
+            placeholder="E-mail"
             value={ email }
             data-testid="admin_manage__input-email"
             onChange={ ({ target }) => setEmail(target.value) }
@@ -67,9 +75,11 @@ function UserRegisterForm() {
         </label>
         <label htmlFor="password">
           <input
-            type="text"
+            className="input-form-users"
+            type="password"
             name="password"
             id="password"
+            placeholder="Senha"
             value={ password }
             data-testid="admin_manage__input-password"
             onChange={ ({ target }) => setPassword(target.value) }
@@ -78,6 +88,7 @@ function UserRegisterForm() {
 
         <label htmlFor="role">
           <select
+            className="select-role-users"
             name="role"
             id="role"
             data-testid="admin_manage__select-role"
@@ -93,15 +104,15 @@ function UserRegisterForm() {
             }
           </select>
         </label>
-        <div className="button-alter-qnt">
+        <div className="">
           <button
-            className="button-modified-qnt button-down-qnt"
+            className="btn-submit-users"
             type="button"
             disabled={ isDisabled }
             onClick={ registerUser }
             data-testid="admin_manage__button-register"
           >
-            create
+            Cadastrar
           </button>
         </div>
       </form>

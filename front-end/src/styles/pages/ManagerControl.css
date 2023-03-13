@@ -1,0 +1,59 @@
+/* .container-users-card {
+  background-color: white;
+  border: solid 1px red;
+  display: flex;
+  font-size: 24px;
+  margin: 20px 0;
+  text-align: center;
+} */
+
+
+.title-user {
+  text-align: start;
+  width: 1060px;
+}
+
+.container-users-card {
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 400px;
+  padding: 20px;
+  position: relative;
+  width: 1020px;
+}
+
+.bar-title-users-card {
+  display: flex;
+  font-size: 16px;
+  text-align: center;
+}
+
+.index-item-users-title {
+  width: 70px;
+}
+
+.name-item-users-title {
+  padding-left: 10px;
+  width: 310px;
+}
+
+.email-item-users-title {
+  width: 350px;
+}
+
+.role-item-users-title {
+  width: 180px;
+}
+
+
+.btn-remove-item-users-title {
+  width: 110px;
+}
+
+.container-total-price {
+  display: flex;
+  justify-content: end;
+}
