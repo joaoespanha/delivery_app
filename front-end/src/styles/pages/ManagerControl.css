@@ -1,13 +1,3 @@
-/* .container-users-card {
-  background-color: white;
-  border: solid 1px red;
-  display: flex;
-  font-size: 24px;
-  margin: 20px 0;
-  text-align: center;
-} */
-
-
 .title-user {
   text-align: start;
   width: 1060px;
@@ -56,4 +46,59 @@
 .container-total-price {
   display: flex;
   justify-content: end;
+}
+
+
+/* Estilos para telas menores que 768px */
+
+@media screen and ( max-width : 768px ) {
+
+  .title-user {
+    width: 90%;
+  }
+
+  .container-users-card {
+    width: 90%;
+  }
+
+  .bar-title-users-card {
+    display: none;
+  }
+
+  .user-title {
+    text-align: center;
+  }
+
+  .user-card {
+    margin-bottom: 20px;
+  }
+
+  .name-item-users {
+    font-size: 14px;
+    margin-bottom: 5px;
+    width: 100%;
+  }
+
+  .email-item-users {
+    font-size: 14px;
+    margin-bottom: 5px;
+    width: 100%;
+  }
+
+  .role-item-users {
+    font-size: 14px;
+    margin-bottom: 5px;
+    width: 100%;
+  }
+
+  .div-btn-remove-user-card {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .btn-remove-item-users {
+    font-size: 14px;
+    width: 100%;
+  }
 }

@@ -57,7 +57,7 @@ function UserCard({ user }) {
         { role }
       </div>
 
-      <div className="button-alter-qnt">
+      <div className="div-btn-remove-user-card">
         <button
           className="btn-remove-user-card"
           type="button"
