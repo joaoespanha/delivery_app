@@ -11,3 +11,15 @@
   width: 80%;
 }
 
+
+@media screen and ( max-width : 900px ) {
+
+  .section-seller-orders {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 10px;
+    padding: 0;
+    width: 95%;
+  }
+}
