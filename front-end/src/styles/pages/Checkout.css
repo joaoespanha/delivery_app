@@ -104,3 +104,57 @@
   text-transform: uppercase;
   width: 40%;
 }
+
+
+@media ( max-width : 900px ) {
+
+  .container-shop-card {
+    height: 100%;
+    width: 90%;
+  }
+
+  .title-checkout {
+    width: 90%;
+  }
+
+  .bar-title-shop-card {
+    display: none;
+  }
+
+  .btn-remove-item-shop-card-title {
+    text-align: center;
+    width: 20%;
+  }
+
+  .checkout-title {
+    font-size: 28px;
+  }
+
+  .container-form-checkout {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .item-form-checkout {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .item-label-checkout {
+    width: 90%;
+  }
+
+  .input-form-checkout {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0;
+    width: 100%;
+  }
+
+  .btn-submit-checkout {
+    width: 80%;
+  }
+}

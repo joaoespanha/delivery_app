@@ -3,7 +3,7 @@ main {
   background-color: var(--white-app);
   display: flex;
   flex-direction: column;
-  height: 98vh;
+  height: auto;
   width: 100%;
 }
 
@@ -42,4 +42,48 @@ main {
 .span-cart-total:before {
   content: 'R$';
   margin-right: 5px;
+}
+
+
+@media ( max-width : 1200px ) {
+
+  .container-product-card {
+    width: 100%;
+  }
+
+  .grid-product-card {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+@media ( max-width : 850px ) {
+
+  .container-product-card {
+    width: 100%;
+  }
+
+  .grid-product-card {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media ( max-width : 600px ) {
+
+  .container-product-card {
+    width: 100%;
+  }
+
+  .grid-product-card {
+    grid-template-columns: repeat(1, 1fr);
+    margin: 50px 20px;
+  }
+
+  .button-cart-total {
+    font-size: 1.5rem;
+    height: 60px;
+    right: 5%;
+    width: 200px;
+  }
 }

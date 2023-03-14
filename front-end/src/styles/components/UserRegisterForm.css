@@ -35,3 +35,28 @@
   text-transform: uppercase;
   width: 160px;
 }
+
+
+@media ( max-width : 768px ) {
+
+  .container-user-register-form {
+    flex-direction: column;
+    padding: 0;
+    width: 100%;
+  }
+
+  .container-form-users {
+    flex-direction: column;
+    padding: 20px 0;
+    width: 100%;
+  }
+
+  .input-form-users, .select-role-users {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .item-label-users {
+    width: 80%;
+  }
+}

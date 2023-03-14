@@ -44,12 +44,15 @@ function UserRegisterForm() {
     }
   };
   return (
-    <div>
+    <div className="container-user-register-form">
       <div className="title-users">
         <h2>Cadastrar novo usuário</h2>
       </div>
       <form className="container-form-users">
-        <label htmlFor="name">
+        <label
+          htmlFor="name"
+          className="item-label-users"
+        >
           <input
             className="input-form-users"
             type="text"
@@ -61,7 +64,10 @@ function UserRegisterForm() {
             onChange={ ({ target }) => setName(target.value) }
           />
         </label>
-        <label htmlFor="email">
+        <label
+          htmlFor="email"
+          className="item-label-users"
+        >
           <input
             className="input-form-users"
             type="email"
@@ -73,9 +79,12 @@ function UserRegisterForm() {
             onChange={ ({ target }) => setEmail(target.value) }
           />
         </label>
-        <label htmlFor="password">
+        <label
+          htmlFor="password"
+          className="item-label-users"
+        >
           <input
-            className="input-form-users"
+            className="input-form-users item-form-users"
             type="password"
             name="password"
             id="password"
@@ -86,7 +95,10 @@ function UserRegisterForm() {
           />
         </label>
 
-        <label htmlFor="role">
+        <label
+          htmlFor="role"
+          className="item-label-users"
+        >
           <select
             className="select-role-users"
             name="role"

@@ -53,3 +53,43 @@
   width: 110px;
 }
 
+/* Tamanhos de tela menores que 768px */
+
+@media only screen and ( max-width : 767px ) {
+
+  .container-infos-user-card {
+    flex-direction: column;
+    height: auto;
+    margin: 20px 0;
+  }
+
+  .index-user-card {
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+  }
+
+  .name-user-card {
+    padding-left: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .email-user-card {
+    width: 100%;
+  }
+
+  .role-user-card {
+    border-radius: 0 0 10px 10px;
+    width: 100%;
+  }
+
+  .btn-remove-user-card {
+    background-color: white;
+    width: 100%;
+  }
+
+  .span-btn-shop-card {
+    background-color: white;
+    border: none;
+  }
+}

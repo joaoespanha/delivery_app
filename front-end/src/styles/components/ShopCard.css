@@ -64,3 +64,69 @@
   width: 110px;
 }
 
+@media screen and ( max-width : 900px ) {
+
+  .div-shop-card {
+    border: solid 1px var(--black-app);
+    border-radius: 10px;
+    flex-direction: column;
+    height: auto;
+    margin-bottom: 50px;
+  }
+
+  .index-item-shop-card {
+    border-radius: 10px 10px 0 0;
+    flex-direction: row;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .index-item-shop-card:before {
+    content: 'Item: ';
+    margin-right: 10px;
+  }
+
+  .name-item-shop-card {
+    flex-direction: row;
+    margin-bottom: 10px;
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .name-item-shop-card:before {
+    content: 'Descrição: ';
+    margin-right: 10px;
+  }
+
+  .qnt-item-shop-card {
+    flex-direction: row;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .qnt-item-shop-card:before {
+    content: 'Quantidade: ';
+    margin-right: 10px;
+  }
+
+
+  .value-item-shop-card, .value-total-item-shop-card {
+    flex-direction: row;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .value-item-shop-card:before {
+    content: 'Valor un: ';
+    margin-right: 10px;
+  }
+
+  .value-total-item-shop-card:before {
+    content: 'Valor Total: ';
+    margin-right: 10px;
+  }
+
+  .btn-remove-item-shop-card {
+    width: 100%;
+  }
+}

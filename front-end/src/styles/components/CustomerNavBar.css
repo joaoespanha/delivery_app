@@ -41,3 +41,38 @@
   border: none;
   cursor: pointer;
 }
+
+@media ( max-width : 768px ) {
+
+  .header-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logotipo-header {
+    height: 50px;
+  }
+
+  .div-links-header-left {
+    align-items: center;
+    display: flex;
+  }
+
+  .links-header {
+    margin: 10px;
+  }
+
+  .button-header img {
+    height: 30px;
+  }
+
+  /* .div-links-header-right {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  } */
+
+  .span-header {
+    margin: 10px;
+  }
+}
