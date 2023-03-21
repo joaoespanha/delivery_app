@@ -9,7 +9,10 @@ const imagePath = path.join(__dirname, '..', '..', '..', 'assets', 'public');
 
 app.use(express.json());
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://delivery-frontend-production.up.railway.app',
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 app.get('/coffee', (_req, res) => res.status(418).end());
 
