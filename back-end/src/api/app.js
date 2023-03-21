@@ -1,5 +1,4 @@
 const express = require('express');
-const cors = require('cors');
 const path = require('path');
 const routes = require('../routes');
 
@@ -7,9 +6,10 @@ const app = express();
 
 const imagePath = path.join(__dirname, '..', '..', '..', 'assets', 'public');
 
-app.use(cors({
-  origin: '*'
-}));
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
 
 app.use(express.json());
 

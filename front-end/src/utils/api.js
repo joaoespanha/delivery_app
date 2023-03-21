@@ -1,7 +1,8 @@
 import axios from 'axios';
 
-const HOST = process.env.REACT_APP_API_HOST || 'back-end-production-9f66.up.railway.app';
-const PROTOCOL = process.env.REACT_APP_API_PROTOCOL || 'https';
+/* const HOST = process.env.REACT_APP_API_HOST || 'back-end-production-9f66.up.railway.app'; */
+const HOST = process.env.REACT_APP_API_HOST || 'localhost:3001';
+const PROTOCOL = process.env.REACT_APP_API_PROTOCOL || 'http';
 
 const BASE_URL = `${PROTOCOL}://${HOST}`;
 
