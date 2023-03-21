@@ -10,7 +10,7 @@ const imagePath = path.join(__dirname, '..', '..', '..', 'assets', 'public');
 app.use(express.json());
 
 app.use(cors({
-  origin: 'https://delivery-frontend-production.up.railway.app',
+  origin: '*',
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
