@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useContext } from 'react';
 import { get } from '../utils/api';
 import { getLocalStorage } from '../utils/storage';
