@@ -48,7 +48,7 @@
 
 .container-total-price {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .container-form-checkout {
