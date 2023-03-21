@@ -7,9 +7,11 @@ const validateTokenMiddle = async (req, res, next) => {
     if (validateTokenResult.error) {
         return res.status(401).json({ message: validateTokenResult.error });
     }
-    next();
+
+  res.header('Access-Control-Allow-Headers', 'Authorization'); // adiciona o cabeçalho "Access-Control-Allow-Headers" com o valor "Authorization"
+  next();
 };
 
 module.exports = {
-    validateTokenMiddle,
+  validateTokenMiddle,
 };
