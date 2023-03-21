@@ -9,10 +9,7 @@ const imagePath = path.join(__dirname, '..', '..', '..', 'assets', 'public');
 
 app.use(express.json());
 
-app.use(cors({
-  origin: '*',
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(cors());
 
 app.get('/coffee', (_req, res) => res.status(418).end());
 
