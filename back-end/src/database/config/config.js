@@ -5,9 +5,9 @@ const environment = process.env.NODE_ENV || "test";
 const suffix = {
   prod: "",
   production: "",
-  dev: "",
-  development: "",
-  test: "",
+  dev: "-dev",
+  development: "-dev",
+  test: "-test",
 };
 
 const options = {
