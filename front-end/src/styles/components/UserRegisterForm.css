@@ -36,6 +36,17 @@
   width: 160px;
 }
 
+.btn-submit-users:enabled {
+  background-color: var(--yellow-app);
+  color: var(--black-app);
+}
+
+.btn-submit-users:disabled {
+  background-color: #e0e0e0;
+  color: #9e9e9e;
+  cursor: default;
+}
+
 
 @media ( max-width : 768px ) {
 
