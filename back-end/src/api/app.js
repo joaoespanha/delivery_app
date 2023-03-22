@@ -5,13 +5,12 @@ const routes = require('../routes');
 
 const app = express();
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
-});
-
 const imagePath = path.join(__dirname, '..', '..', '..', 'assets', 'public');
+
+app.use(cors({
+  origin: '*',
+  allowedHeaders: ['Content-Type']
+}));
 
 app.use(express.json());
 
